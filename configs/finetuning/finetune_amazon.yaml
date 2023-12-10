@@ -1,0 +1,139 @@
+# wandb
+wandb_enable: False
+project_name: ""
+display_name: ""
+
+
+# dataset
+# - basic
+num_worker: 4
+############################################# - train
+# Sports
+# train_item_file: "./dataset/amazon/processed/Sports/item_feature.jsonl"
+# train_seq_file: "./dataset/amazon/processed/Sports/train_seq.jsonl"
+
+# Beauty
+train_item_file: "./dataset/amazon/processed/Beauty/item_feature.jsonl"
+train_seq_file: "./dataset/amazon/processed/Beauty/train_seq.jsonl"
+
+# Clothing
+# train_item_file: "./dataset/amazon/processed/Clothing/item_feature.jsonl"
+# train_seq_file: "./dataset/amazon/processed/Clothing/train_seq.jsonl"
+
+# Home
+# train_item_file: "./dataset/amazon/processed/Home/item_feature.jsonl"
+# train_seq_file: "./dataset/amazon/processed/Home/train_seq.jsonl"
+
+############################################# - eval
+# # Sports
+# eval_item_file: "./dataset/amazon/processed/Sports/item_feature.jsonl"
+# eval_seq_file: "./dataset/amazon/processed/Sports/eval_seq.jsonl"
+
+# Beauty
+eval_item_file: "./dataset/amazon/processed/Beauty/item_feature.jsonl"
+eval_seq_file: "./dataset/amazon/processed/Beauty/eval_seq.jsonl"
+
+# # Clothing
+# eval_item_file: "./dataset/amazon/processed/Clothing/item_feature.jsonl"
+# eval_seq_file: "./dataset/amazon/processed/Clothing/eval_seq.jsonl"
+
+# Home
+# eval_item_file: "./dataset/amazon/processed/Home/item_feature.jsonl"
+# eval_seq_file: "./dataset/amazon/processed/Home/eval_seq.jsonl"
+
+############################################# - test
+# Sports
+# test_item_file: "./dataset/amazon/processed/Sports/item_feature.jsonl"
+# test_seq_file: "./dataset/amazon/processed/Sports/test_seq.jsonl"
+
+# Beauty
+test_item_file: "./dataset/amazon/processed/Beauty/item_feature.jsonl"
+test_seq_file: "./dataset/amazon/processed/Beauty/test_seq.jsonl"
+
+# Clothing
+# test_item_file: "./dataset/amazon/processed/Clothing/item_feature.jsonl"
+# test_seq_file: "./dataset/amazon/processed/Clothing/test_seq.jsonl"
+
+# Home
+# test_item_file: "./dataset/amazon/processed/Home/item_feature.jsonl"
+# test_seq_file: "./dataset/amazon/processed/Home/test_seq.jsonl"
+
+# - seq
+max_seq_length: 20
+# - vision    ["mp4", "embed", ~]
+train_vision_format: "embed"
+eval_vision_format: "embed"
+test_vision_format: "embed"
+max_vision_frames: 10
+# - text    ["txt", "embed", ~]
+train_text_format: "embed"
+eval_text_format: "embed"
+test_text_format: "embed"
+
+
+# model
+clip_model_path: "./weights/clip/ViT-B-32.pt"
+# - feature data
+vision_feature_embed_dim: 512
+text_feature_embed_dim: 512
+# - fusion model
+fusion_embed_dim: 512
+fusion_layers: 2
+fusion_heads: 8
+fusion_feedforward_dim: 1024
+fusion_dropout: 0.5
+fusion_embed_dropout: 0.2
+initializer_range: 0.02
+############################################## - ngcf
+# path: "./adj_mat/Home"
+# path: "./adj_mat/Sports"
+path: "./adj_mat/Beauty"
+# path: "./adj_mat/Clothing"
+
+
+# train
+# - basic
+seed: 42
+############################################## - log
+# log_file: "./logs/finetune-amazon-2layer-ngcf-home.log"
+# log_file: "./logs/finetune-amazon-2layer-ngcf-sports.log"
+log_file: "./logs/finetune-amazon-2layer-ngcf-beauty.log"
+# log_file: "./logs/finetune-amazon-2layer-ngcf-clothing.log"
+# - dataloader
+train_batch_size: 1024
+eval_batch_size: 1024
+test_batch_size: 1024
+# - train
+num_train_epochs: 500
+learning_rate: 0.001
+lr_scheduler_gamma: 1.0
+max_grad_norm: 1.0
+contrastive_temperature: 0.05
+# - ce
+ce_mask_ratio: 0.2
+# - eval
+early_stopping: 10
+
+
+
+############################################# - save ce_loss
+# model_save_path: "./weights/finetune-Sports-8192batch"
+# model_save_path: "./weights/finetune-Beauty-8192batch"
+# model_save_path: "./weights/finetune-Clothing-8192batch"
+# model_save_path: "./weights/finetune-Home-8192batch"
+
+############################################# - save ngcf
+# model_save_path: "./weights/finetune-Sports-8192batch-ngcf"
+model_save_path: "./weights/finetune-Beauty-8192batch-ngcf"
+# model_save_path: "./weights/finetune-Clothing-8192batch-ngcf"
+# model_save_path: "./weights/finetune-Home-8192batch-ngcf"
+
+
+model_resume_path: "./weights/pretrain-webvid-2layer-512dim"          # ["path/to/checkpoint", ~]
+
+
+
+
+
+
+

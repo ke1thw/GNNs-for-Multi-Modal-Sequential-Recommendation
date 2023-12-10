@@ -1,0 +1,857 @@
+12/02/2023 12:46:37 - INFO - __main__ - {'config': './configs/finetuning/finetune_amazon.yaml', 'wandb_enable': False, 'project_name': '', 'display_name': '', 'num_worker': 4, 'train_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'train_seq_file': './dataset/amazon/processed/Sports/train_seq.jsonl', 'eval_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'eval_seq_file': './dataset/amazon/processed/Sports/eval_seq.jsonl', 'test_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'test_seq_file': './dataset/amazon/processed/Sports/test_seq.jsonl', 'max_seq_length': 20, 'train_vision_format': 'embed', 'eval_vision_format': 'embed', 'test_vision_format': 'embed', 'max_vision_frames': 10, 'train_text_format': 'embed', 'eval_text_format': 'embed', 'test_text_format': 'embed', 'clip_model_path': './weights/clip/ViT-B-32.pt', 'vision_feature_embed_dim': 512, 'text_feature_embed_dim': 512, 'fusion_embed_dim': 512, 'fusion_layers': 2, 'fusion_heads': 8, 'fusion_feedforward_dim': 1024, 'fusion_dropout': 0.5, 'fusion_embed_dropout': 0.2, 'initializer_range': 0.02, 'path': './adj_mat/Sports', 'seed': 42, 'log_file': './logs/finetune-amazon-2layer-ngcf-sports.log', 'train_batch_size': 1024, 'eval_batch_size': 1024, 'test_batch_size': 1024, 'num_train_epochs': 500, 'learning_rate': 0.001, 'lr_scheduler_gamma': 1.0, 'max_grad_norm': 1.0, 'contrastive_temperature': 0.05, 'ce_mask_ratio': 0.2, 'early_stopping': 10, 'model_save_path': './weights/finetune-Sports-8192batch-ngcf', 'model_resume_path': './weights/pretrain-webvid-2layer-512dim', 'rank': 0, 'local_rank': 0, 'world_size': 2, 'device': device(type='cuda', index=0)}
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/pretrain-webvid-2layer-512dim
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer - ***** Run training *****
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer -   Num examples = 189543
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer -   Num Epochs = 500
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer -   Instantaneous batch size per device = 1024
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer -   Total train batch size = 2048
+12/02/2023 12:47:11 - INFO - trainer.finetune_trainer -   Total steps = 46500
+12/02/2023 12:49:57 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 12:50:21 - INFO - trainer.finetune_evaluator - Epoch 0 Eval Result: R@10:0.024214843288064003, R@50:0.06581830233335495, NDCG@10:0.012953950092196465, NDCG@50:0.02182934246957302
+12/02/2023 12:50:21 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 0 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 12:53:02 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 12:53:25 - INFO - trainer.finetune_evaluator - Epoch 1 Eval Result: R@10:0.03587280213832855, R@50:0.1017192006111145, NDCG@10:0.018065571784973145, NDCG@50:0.03223221376538277
+12/02/2023 12:53:25 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 1 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 12:56:06 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 12:56:29 - INFO - trainer.finetune_evaluator - Epoch 2 Eval Result: R@10:0.04379459470510483, R@50:0.11877071857452393, NDCG@10:0.02207145094871521, NDCG@50:0.03808686137199402
+12/02/2023 12:56:29 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 2 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 12:59:10 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 12:59:33 - INFO - trainer.finetune_evaluator - Epoch 3 Eval Result: R@10:0.0466318354010582, R@50:0.12565313279628754, NDCG@10:0.023360809311270714, NDCG@50:0.040352270007133484
+12/02/2023 12:59:33 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 3 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:02:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:02:37 - INFO - trainer.finetune_evaluator - Epoch 4 Eval Result: R@10:0.05087364464998245, R@50:0.13239508867263794, NDCG@10:0.02543637715280056, NDCG@50:0.04303108528256416
+12/02/2023 13:02:37 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 4 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:05:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:05:41 - INFO - trainer.finetune_evaluator - Epoch 5 Eval Result: R@10:0.050564639270305634, R@50:0.13568177819252014, NDCG@10:0.025981947779655457, NDCG@50:0.04427687078714371
+12/02/2023 13:08:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:08:45 - INFO - trainer.finetune_evaluator - Epoch 6 Eval Result: R@10:0.05230630934238434, R@50:0.14062587916851044, NDCG@10:0.02652951329946518, NDCG@50:0.045602716505527496
+12/02/2023 13:08:45 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 6 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:11:26 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:11:49 - INFO - trainer.finetune_evaluator - Epoch 7 Eval Result: R@10:0.05416034907102585, R@50:0.14554189145565033, NDCG@10:0.02752673625946045, NDCG@50:0.04728660732507706
+12/02/2023 13:11:49 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 7 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:14:30 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:14:53 - INFO - trainer.finetune_evaluator - Epoch 8 Eval Result: R@10:0.055452555418014526, R@50:0.14739592373371124, NDCG@10:0.027825307101011276, NDCG@50:0.0476384200155735
+12/02/2023 13:14:53 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 8 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:17:34 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:17:58 - INFO - trainer.finetune_evaluator - Epoch 9 Eval Result: R@10:0.0549469068646431, R@50:0.14922186732292175, NDCG@10:0.02779536508023739, NDCG@50:0.04804782196879387
+12/02/2023 13:20:38 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:21:02 - INFO - trainer.finetune_evaluator - Epoch 10 Eval Result: R@10:0.057587504386901855, R@50:0.15099163353443146, NDCG@10:0.029318932443857193, NDCG@50:0.04948384687304497
+12/02/2023 13:21:02 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 10 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:23:43 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:24:06 - INFO - trainer.finetune_evaluator - Epoch 11 Eval Result: R@10:0.05784032866358757, R@50:0.15388505160808563, NDCG@10:0.02964606136083603, NDCG@50:0.050422318279743195
+12/02/2023 13:24:06 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 11 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:26:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:27:10 - INFO - trainer.finetune_evaluator - Epoch 12 Eval Result: R@10:0.05857070907950401, R@50:0.1550087183713913, NDCG@10:0.02998073771595955, NDCG@50:0.05076318979263306
+12/02/2023 13:27:10 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 12 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:29:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:30:14 - INFO - trainer.finetune_evaluator - Epoch 13 Eval Result: R@10:0.06039665266871452, R@50:0.15714366734027863, NDCG@10:0.03129688277840614, NDCG@50:0.05217884108424187
+12/02/2023 13:30:14 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 13 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:32:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:33:18 - INFO - trainer.finetune_evaluator - Epoch 14 Eval Result: R@10:0.0616607703268528, R@50:0.15776167809963226, NDCG@10:0.03168973699212074, NDCG@50:0.052384525537490845
+12/02/2023 13:33:18 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 14 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:35:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:36:22 - INFO - trainer.finetune_evaluator - Epoch 15 Eval Result: R@10:0.06098657473921776, R@50:0.15877297520637512, NDCG@10:0.031447213143110275, NDCG@50:0.05252329260110855
+12/02/2023 13:39:03 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:39:26 - INFO - trainer.finetune_evaluator - Epoch 16 Eval Result: R@10:0.059947188943624496, R@50:0.1581830531358719, NDCG@10:0.030851980671286583, NDCG@50:0.05208703875541687
+12/02/2023 13:42:07 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:42:30 - INFO - trainer.finetune_evaluator - Epoch 17 Eval Result: R@10:0.06317770481109619, R@50:0.16085173189640045, NDCG@10:0.032130155712366104, NDCG@50:0.053258221596479416
+12/02/2023 13:42:30 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 17 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:45:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:45:35 - INFO - trainer.finetune_evaluator - Epoch 18 Eval Result: R@10:0.06244732812047005, R@50:0.15992471575737, NDCG@10:0.03200535848736763, NDCG@50:0.0531487911939621
+12/02/2023 13:48:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:48:39 - INFO - trainer.finetune_evaluator - Epoch 19 Eval Result: R@10:0.06216641515493393, R@50:0.16127310693264008, NDCG@10:0.031831882894039154, NDCG@50:0.05326485633850098
+12/02/2023 13:51:20 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:51:43 - INFO - trainer.finetune_evaluator - Epoch 20 Eval Result: R@10:0.0633743479847908, R@50:0.16309905052185059, NDCG@10:0.032173603773117065, NDCG@50:0.05372888222336769
+12/02/2023 13:51:43 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 20 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 13:54:24 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:54:47 - INFO - trainer.finetune_evaluator - Epoch 21 Eval Result: R@10:0.0633743479847908, R@50:0.16380134224891663, NDCG@10:0.03249013051390648, NDCG@50:0.054251570254564285
+12/02/2023 13:57:27 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 13:57:51 - INFO - trainer.finetune_evaluator - Epoch 22 Eval Result: R@10:0.06354289501905441, R@50:0.16394180059432983, NDCG@10:0.03258836269378662, NDCG@50:0.05427128076553345
+12/02/2023 13:57:51 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 22 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:00:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:00:55 - INFO - trainer.finetune_evaluator - Epoch 23 Eval Result: R@10:0.06480701267719269, R@50:0.16419462859630585, NDCG@10:0.03348667547106743, NDCG@50:0.05501256883144379
+12/02/2023 14:00:55 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 23 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:03:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:03:59 - INFO - trainer.finetune_evaluator - Epoch 24 Eval Result: R@10:0.06452609598636627, R@50:0.16590820252895355, NDCG@10:0.033274758607149124, NDCG@50:0.05511527881026268
+12/02/2023 14:06:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:07:04 - INFO - trainer.finetune_evaluator - Epoch 25 Eval Result: R@10:0.06455419212579727, R@50:0.1664981245994568, NDCG@10:0.03336826711893082, NDCG@50:0.05539890378713608
+12/02/2023 14:09:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:10:08 - INFO - trainer.finetune_evaluator - Epoch 26 Eval Result: R@10:0.06550929695367813, R@50:0.16781842708587646, NDCG@10:0.03387361764907837, NDCG@50:0.05599137395620346
+12/02/2023 14:10:08 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 26 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:12:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:13:12 - INFO - trainer.finetune_evaluator - Epoch 27 Eval Result: R@10:0.06441373378038406, R@50:0.16630147397518158, NDCG@10:0.03282039985060692, NDCG@50:0.05487382784485817
+12/02/2023 14:15:53 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:16:16 - INFO - trainer.finetune_evaluator - Epoch 28 Eval Result: R@10:0.06601494550704956, R@50:0.16573965549468994, NDCG@10:0.03374379500746727, NDCG@50:0.05529928207397461
+12/02/2023 14:16:16 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 28 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:18:57 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:19:20 - INFO - trainer.finetune_evaluator - Epoch 29 Eval Result: R@10:0.0648912861943245, R@50:0.16635766625404358, NDCG@10:0.03362666070461273, NDCG@50:0.055588532239198685
+12/02/2023 14:22:01 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:22:24 - INFO - trainer.finetune_evaluator - Epoch 30 Eval Result: R@10:0.06562166661024094, R@50:0.16663858294487, NDCG@10:0.03370673581957817, NDCG@50:0.05555693060159683
+12/02/2023 14:25:04 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:25:27 - INFO - trainer.finetune_evaluator - Epoch 31 Eval Result: R@10:0.06699814647436142, R@50:0.1682116985321045, NDCG@10:0.034539107233285904, NDCG@50:0.05635444447398186
+12/02/2023 14:25:27 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 31 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:28:08 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:28:31 - INFO - trainer.finetune_evaluator - Epoch 32 Eval Result: R@10:0.06475082784891129, R@50:0.16894207894802094, NDCG@10:0.03347543254494667, NDCG@50:0.05602554976940155
+12/02/2023 14:31:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:31:35 - INFO - trainer.finetune_evaluator - Epoch 33 Eval Result: R@10:0.06615540385246277, R@50:0.16950391232967377, NDCG@10:0.033893827348947525, NDCG@50:0.05623127520084381
+12/02/2023 14:34:15 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:34:38 - INFO - trainer.finetune_evaluator - Epoch 34 Eval Result: R@10:0.06711051613092422, R@50:0.1683521568775177, NDCG@10:0.034153830260038376, NDCG@50:0.05595291033387184
+12/02/2023 14:34:38 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 34 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:37:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:37:42 - INFO - trainer.finetune_evaluator - Epoch 35 Eval Result: R@10:0.066717229783535, R@50:0.17037475109100342, NDCG@10:0.03413012996315956, NDCG@50:0.05652087926864624
+12/02/2023 14:40:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:40:45 - INFO - trainer.finetune_evaluator - Epoch 36 Eval Result: R@10:0.06640822440385818, R@50:0.16773414611816406, NDCG@10:0.0342424251139164, NDCG@50:0.056218188256025314
+12/02/2023 14:43:25 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:43:48 - INFO - trainer.finetune_evaluator - Epoch 37 Eval Result: R@10:0.066745325922966, R@50:0.1680993288755417, NDCG@10:0.03455735370516777, NDCG@50:0.056548602879047394
+12/02/2023 14:46:29 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:46:52 - INFO - trainer.finetune_evaluator - Epoch 38 Eval Result: R@10:0.06598685681819916, R@50:0.16801506280899048, NDCG@10:0.03410589322447777, NDCG@50:0.056210096925497055
+12/02/2023 14:49:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:49:55 - INFO - trainer.finetune_evaluator - Epoch 39 Eval Result: R@10:0.06739142537117004, R@50:0.170037642121315, NDCG@10:0.03435543552041054, NDCG@50:0.05646883323788643
+12/02/2023 14:49:55 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 39 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:52:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:52:59 - INFO - trainer.finetune_evaluator - Epoch 40 Eval Result: R@10:0.06601494550704956, R@50:0.16798697412014008, NDCG@10:0.03347024694085121, NDCG@50:0.05558530241250992
+12/02/2023 14:55:39 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:56:02 - INFO - trainer.finetune_evaluator - Epoch 41 Eval Result: R@10:0.06888027489185333, R@50:0.17217259109020233, NDCG@10:0.03481041640043259, NDCG@50:0.05710698664188385
+12/02/2023 14:56:02 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 41 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 14:58:43 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 14:59:06 - INFO - trainer.finetune_evaluator - Epoch 42 Eval Result: R@10:0.06747569888830185, R@50:0.17096465826034546, NDCG@10:0.034512363374233246, NDCG@50:0.05683892220258713
+12/02/2023 15:01:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:02:10 - INFO - trainer.finetune_evaluator - Epoch 43 Eval Result: R@10:0.06823417544364929, R@50:0.16972863674163818, NDCG@10:0.03487806022167206, NDCG@50:0.056865569204092026
+12/02/2023 15:04:50 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:05:13 - INFO - trainer.finetune_evaluator - Epoch 44 Eval Result: R@10:0.06859935820102692, R@50:0.17231304943561554, NDCG@10:0.03503275662660599, NDCG@50:0.05743859335780144
+12/02/2023 15:07:54 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:08:17 - INFO - trainer.finetune_evaluator - Epoch 45 Eval Result: R@10:0.0684027224779129, R@50:0.17043092846870422, NDCG@10:0.03523612394928932, NDCG@50:0.05723705515265465
+12/02/2023 15:10:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:11:21 - INFO - trainer.finetune_evaluator - Epoch 46 Eval Result: R@10:0.06733524799346924, R@50:0.1685207039117813, NDCG@10:0.03412248194217682, NDCG@50:0.055997151881456375
+12/02/2023 15:14:01 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:14:25 - INFO - trainer.finetune_evaluator - Epoch 47 Eval Result: R@10:0.06817799061536789, R@50:0.17200404405593872, NDCG@10:0.03459993377327919, NDCG@50:0.05702681466937065
+12/02/2023 15:17:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:17:28 - INFO - trainer.finetune_evaluator - Epoch 48 Eval Result: R@10:0.06857126951217651, R@50:0.1716388612985611, NDCG@10:0.03488205000758171, NDCG@50:0.05721614137291908
+12/02/2023 15:20:08 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:20:32 - INFO - trainer.finetune_evaluator - Epoch 49 Eval Result: R@10:0.06862745434045792, R@50:0.17118939757347107, NDCG@10:0.034409407526254654, NDCG@50:0.05654766038060188
+12/02/2023 15:23:12 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:23:35 - INFO - trainer.finetune_evaluator - Epoch 50 Eval Result: R@10:0.0683184489607811, R@50:0.17079611122608185, NDCG@10:0.0343003049492836, NDCG@50:0.05648486316204071
+12/02/2023 15:26:15 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:26:39 - INFO - trainer.finetune_evaluator - Epoch 51 Eval Result: R@10:0.06893645972013474, R@50:0.16919490694999695, NDCG@10:0.035055749118328094, NDCG@50:0.05678985267877579
+12/02/2023 15:26:39 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 51 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 15:29:19 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:29:42 - INFO - trainer.finetune_evaluator - Epoch 52 Eval Result: R@10:0.06924546509981155, R@50:0.17037475109100342, NDCG@10:0.03523853048682213, NDCG@50:0.05716251581907272
+12/02/2023 15:29:42 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 52 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 15:32:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:32:46 - INFO - trainer.finetune_evaluator - Epoch 53 Eval Result: R@10:0.0682622641324997, R@50:0.17057138681411743, NDCG@10:0.03509259223937988, NDCG@50:0.057281818240880966
+12/02/2023 15:35:26 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:35:49 - INFO - trainer.finetune_evaluator - Epoch 54 Eval Result: R@10:0.06868363916873932, R@50:0.16891399025917053, NDCG@10:0.0343787707388401, NDCG@50:0.05605205520987511
+12/02/2023 15:38:29 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:38:53 - INFO - trainer.finetune_evaluator - Epoch 55 Eval Result: R@10:0.06778471171855927, R@50:0.16899825632572174, NDCG@10:0.03451190143823624, NDCG@50:0.05644692853093147
+12/02/2023 15:41:33 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:41:57 - INFO - trainer.finetune_evaluator - Epoch 56 Eval Result: R@10:0.06761615723371506, R@50:0.16970054805278778, NDCG@10:0.03431006520986557, NDCG@50:0.05640837550163269
+12/02/2023 15:44:37 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:45:00 - INFO - trainer.finetune_evaluator - Epoch 57 Eval Result: R@10:0.069947749376297, R@50:0.16964437067508698, NDCG@10:0.03522429242730141, NDCG@50:0.05679392069578171
+12/02/2023 15:45:00 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 57 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 15:47:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:48:04 - INFO - trainer.finetune_evaluator - Epoch 58 Eval Result: R@10:0.0700601190328598, R@50:0.17071184515953064, NDCG@10:0.03526982292532921, NDCG@50:0.05706363171339035
+12/02/2023 15:48:04 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 58 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 15:50:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:51:07 - INFO - trainer.finetune_evaluator - Epoch 59 Eval Result: R@10:0.06975111365318298, R@50:0.17141412198543549, NDCG@10:0.03530043736100197, NDCG@50:0.057308729737997055
+12/02/2023 15:53:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:54:10 - INFO - trainer.finetune_evaluator - Epoch 60 Eval Result: R@10:0.06862745434045792, R@50:0.17093656957149506, NDCG@10:0.03457438200712204, NDCG@50:0.05670824646949768
+12/02/2023 15:56:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 15:57:14 - INFO - trainer.finetune_evaluator - Epoch 61 Eval Result: R@10:0.06800944358110428, R@50:0.16967245936393738, NDCG@10:0.03473273292183876, NDCG@50:0.056739021092653275
+12/02/2023 15:59:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:00:18 - INFO - trainer.finetune_evaluator - Epoch 62 Eval Result: R@10:0.06972301751375198, R@50:0.16944772005081177, NDCG@10:0.03559175506234169, NDCG@50:0.05709439516067505
+12/02/2023 16:02:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:03:21 - INFO - trainer.finetune_evaluator - Epoch 63 Eval Result: R@10:0.06916119158267975, R@50:0.17276251316070557, NDCG@10:0.03512902557849884, NDCG@50:0.057508762925863266
+12/02/2023 16:06:02 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:06:25 - INFO - trainer.finetune_evaluator - Epoch 64 Eval Result: R@10:0.06935782730579376, R@50:0.16891399025917053, NDCG@10:0.03478139266371727, NDCG@50:0.05625732243061066
+12/02/2023 16:09:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:09:28 - INFO - trainer.finetune_evaluator - Epoch 65 Eval Result: R@10:0.06986347585916519, R@50:0.1718074083328247, NDCG@10:0.03538679704070091, NDCG@50:0.05742277577519417
+12/02/2023 16:12:08 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:12:32 - INFO - trainer.finetune_evaluator - Epoch 66 Eval Result: R@10:0.069975845515728, R@50:0.17208832502365112, NDCG@10:0.035396866500377655, NDCG@50:0.05749249458312988
+12/02/2023 16:15:12 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:15:35 - INFO - trainer.finetune_evaluator - Epoch 67 Eval Result: R@10:0.07084667682647705, R@50:0.17276251316070557, NDCG@10:0.03581180050969124, NDCG@50:0.05777173116803169
+12/02/2023 16:15:35 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 67 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 16:18:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:18:39 - INFO - trainer.finetune_evaluator - Epoch 68 Eval Result: R@10:0.0682622641324997, R@50:0.16880162060260773, NDCG@10:0.034673307090997696, NDCG@50:0.05650261044502258
+12/02/2023 16:21:20 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:21:43 - INFO - trainer.finetune_evaluator - Epoch 69 Eval Result: R@10:0.06977920234203339, R@50:0.17124557495117188, NDCG@10:0.03523360565304756, NDCG@50:0.05722161754965782
+12/02/2023 16:24:24 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:24:47 - INFO - trainer.finetune_evaluator - Epoch 70 Eval Result: R@10:0.06896454840898514, R@50:0.1717512309551239, NDCG@10:0.03526334464550018, NDCG@50:0.05748235061764717
+12/02/2023 16:27:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:27:51 - INFO - trainer.finetune_evaluator - Epoch 71 Eval Result: R@10:0.06921737641096115, R@50:0.16978482902050018, NDCG@10:0.03534514829516411, NDCG@50:0.05712423101067543
+12/02/2023 16:30:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:30:55 - INFO - trainer.finetune_evaluator - Epoch 72 Eval Result: R@10:0.06955447047948837, R@50:0.16978482902050018, NDCG@10:0.03539591282606125, NDCG@50:0.05705160275101662
+12/02/2023 16:33:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:33:59 - INFO - trainer.finetune_evaluator - Epoch 73 Eval Result: R@10:0.06876791268587112, R@50:0.17104893922805786, NDCG@10:0.03454446420073509, NDCG@50:0.05666009336709976
+12/02/2023 16:36:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:37:03 - INFO - trainer.finetune_evaluator - Epoch 74 Eval Result: R@10:0.06910500675439835, R@50:0.16970054805278778, NDCG@10:0.03522854670882225, NDCG@50:0.05710653215646744
+12/02/2023 16:39:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:40:07 - INFO - trainer.finetune_evaluator - Epoch 75 Eval Result: R@10:0.06803753226995468, R@50:0.1699252873659134, NDCG@10:0.0343073345720768, NDCG@50:0.056380219757556915
+12/02/2023 16:42:48 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:43:11 - INFO - trainer.finetune_evaluator - Epoch 76 Eval Result: R@10:0.06848699599504471, R@50:0.1699533760547638, NDCG@10:0.0346844345331192, NDCG@50:0.05665795877575874
+12/02/2023 16:45:52 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 16:46:15 - INFO - trainer.finetune_evaluator - Epoch 77 Eval Result: R@10:0.0699196606874466, R@50:0.1718635857105255, NDCG@10:0.03506648913025856, NDCG@50:0.05714653059840202
+12/02/2023 16:46:15 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 16:46:15 - INFO - trainer.finetune_evaluator - ***** Run test *****
+12/02/2023 16:46:39 - INFO - trainer.finetune_evaluator - Test Result: R@10:0.06135176122188568, R@50:0.15582336485385895, NDCG@10:0.031347837299108505, NDCG@50:0.05189192667603493
+12/02/2023 21:54:53 - INFO - __main__ - {'config': './configs/finetuning/finetune_amazon.yaml', 'wandb_enable': False, 'project_name': '', 'display_name': '', 'num_worker': 4, 'train_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'train_seq_file': './dataset/amazon/processed/Sports/train_seq.jsonl', 'eval_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'eval_seq_file': './dataset/amazon/processed/Sports/eval_seq.jsonl', 'test_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'test_seq_file': './dataset/amazon/processed/Sports/test_seq.jsonl', 'max_seq_length': 20, 'train_vision_format': 'embed', 'eval_vision_format': 'embed', 'test_vision_format': 'embed', 'max_vision_frames': 10, 'train_text_format': 'embed', 'eval_text_format': 'embed', 'test_text_format': 'embed', 'clip_model_path': './weights/clip/ViT-B-32.pt', 'vision_feature_embed_dim': 512, 'text_feature_embed_dim': 512, 'fusion_embed_dim': 512, 'fusion_layers': 2, 'fusion_heads': 8, 'fusion_feedforward_dim': 1024, 'fusion_dropout': 0.5, 'fusion_embed_dropout': 0.2, 'initializer_range': 0.02, 'path': './adj_mat/Sports', 'seed': 42, 'log_file': './logs/finetune-amazon-2layer-ngcf-sports.log', 'train_batch_size': 1024, 'eval_batch_size': 1024, 'test_batch_size': 1024, 'num_train_epochs': 500, 'learning_rate': 0.001, 'lr_scheduler_gamma': 1.0, 'max_grad_norm': 1.0, 'contrastive_temperature': 0.05, 'ce_mask_ratio': 0.2, 'early_stopping': 10, 'model_save_path': './weights/finetune-Sports-8192batch-ngcf', 'model_resume_path': './weights/pretrain-webvid-2layer-512dim', 'rank': 0, 'local_rank': 0, 'world_size': 2, 'device': device(type='cuda', index=0)}
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/pretrain-webvid-2layer-512dim
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer - ***** Run training *****
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer -   Num examples = 189543
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer -   Num Epochs = 500
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer -   Instantaneous batch size per device = 1024
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer -   Total train batch size = 2048
+12/02/2023 21:55:46 - INFO - trainer.finetune_trainer -   Total steps = 46500
+12/02/2023 21:57:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 21:58:05 - INFO - trainer.finetune_evaluator - Epoch 0 Eval Result: R@10:0.02452385053038597, R@50:0.06387999653816223, NDCG@10:0.013000668957829475, NDCG@50:0.021488944068551064
+12/02/2023 21:58:05 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 0 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 21:59:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:00:16 - INFO - trainer.finetune_evaluator - Epoch 1 Eval Result: R@10:0.03632226586341858, R@50:0.10301140695810318, NDCG@10:0.018531009554862976, NDCG@50:0.03286952152848244
+12/02/2023 22:00:16 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 1 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:02:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:02:28 - INFO - trainer.finetune_evaluator - Epoch 2 Eval Result: R@10:0.04151918739080429, R@50:0.11624249070882797, NDCG@10:0.021268188953399658, NDCG@50:0.03734147921204567
+12/02/2023 22:02:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 2 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:04:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:04:40 - INFO - trainer.finetune_evaluator - Epoch 3 Eval Result: R@10:0.04601382091641426, R@50:0.126580148935318, NDCG@10:0.02345765382051468, NDCG@50:0.04081270098686218
+12/02/2023 22:04:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 3 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:06:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:06:52 - INFO - trainer.finetune_evaluator - Epoch 4 Eval Result: R@10:0.05036799982190132, R@50:0.13290072977542877, NDCG@10:0.025416381657123566, NDCG@50:0.04310130327939987
+12/02/2023 22:06:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 4 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:08:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:09:04 - INFO - trainer.finetune_evaluator - Epoch 5 Eval Result: R@10:0.051604025065898895, R@50:0.13629978895187378, NDCG@10:0.026343099772930145, NDCG@50:0.04449528455734253
+12/02/2023 22:09:04 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 5 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:10:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:11:17 - INFO - trainer.finetune_evaluator - Epoch 6 Eval Result: R@10:0.050957921892404556, R@50:0.13885611295700073, NDCG@10:0.025830579921603203, NDCG@50:0.04466527700424194
+12/02/2023 22:13:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:13:28 - INFO - trainer.finetune_evaluator - Epoch 7 Eval Result: R@10:0.0533737875521183, R@50:0.14408113062381744, NDCG@10:0.02684401348233223, NDCG@50:0.04643842950463295
+12/02/2023 22:13:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 7 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:15:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:15:40 - INFO - trainer.finetune_evaluator - Epoch 8 Eval Result: R@10:0.053429968655109406, R@50:0.1452328860759735, NDCG@10:0.027078334242105484, NDCG@50:0.04691854491829872
+12/02/2023 22:15:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 8 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:17:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:17:52 - INFO - trainer.finetune_evaluator - Epoch 9 Eval Result: R@10:0.055115457624197006, R@50:0.14880049228668213, NDCG@10:0.027874093502759933, NDCG@50:0.048087455332279205
+12/02/2023 22:17:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 9 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:19:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:20:05 - INFO - trainer.finetune_evaluator - Epoch 10 Eval Result: R@10:0.05680094659328461, R@50:0.15031743049621582, NDCG@10:0.028685664758086205, NDCG@50:0.04881837218999863
+12/02/2023 22:20:05 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 10 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:21:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:22:17 - INFO - trainer.finetune_evaluator - Epoch 11 Eval Result: R@10:0.0566604882478714, R@50:0.1518343687057495, NDCG@10:0.02919819951057434, NDCG@50:0.04979277029633522
+12/02/2023 22:24:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:24:28 - INFO - trainer.finetune_evaluator - Epoch 12 Eval Result: R@10:0.05980673059821129, R@50:0.1549525260925293, NDCG@10:0.030227994546294212, NDCG@50:0.05067282170057297
+12/02/2023 22:24:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 12 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:26:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:26:41 - INFO - trainer.finetune_evaluator - Epoch 13 Eval Result: R@10:0.05918871983885765, R@50:0.15545818209648132, NDCG@10:0.030221277847886086, NDCG@50:0.051033444702625275
+12/02/2023 22:28:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:28:52 - INFO - trainer.finetune_evaluator - Epoch 14 Eval Result: R@10:0.06146412715315819, R@50:0.15759313106536865, NDCG@10:0.03160817548632622, NDCG@50:0.05241263285279274
+12/02/2023 22:28:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 14 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:30:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:31:05 - INFO - trainer.finetune_evaluator - Epoch 15 Eval Result: R@10:0.058795440942049026, R@50:0.15767739713191986, NDCG@10:0.030291207134723663, NDCG@50:0.05167905241250992
+12/02/2023 22:32:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:33:16 - INFO - trainer.finetune_evaluator - Epoch 16 Eval Result: R@10:0.06213832274079323, R@50:0.15894152224063873, NDCG@10:0.031648408621549606, NDCG@50:0.05255372077226639
+12/02/2023 22:33:16 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 16 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:35:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:35:29 - INFO - trainer.finetune_evaluator - Epoch 17 Eval Result: R@10:0.06101466342806816, R@50:0.15908198058605194, NDCG@10:0.031359851360321045, NDCG@50:0.05251619592308998
+12/02/2023 22:37:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:37:40 - INFO - trainer.finetune_evaluator - Epoch 18 Eval Result: R@10:0.06196977570652962, R@50:0.15939098596572876, NDCG@10:0.031440142542123795, NDCG@50:0.052470169961452484
+12/02/2023 22:39:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:39:52 - INFO - trainer.finetune_evaluator - Epoch 19 Eval Result: R@10:0.06230687350034714, R@50:0.1600089967250824, NDCG@10:0.03203296288847923, NDCG@50:0.05315496399998665
+12/02/2023 22:39:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 19 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:41:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:42:04 - INFO - trainer.finetune_evaluator - Epoch 20 Eval Result: R@10:0.06317770481109619, R@50:0.16118884086608887, NDCG@10:0.03227642923593521, NDCG@50:0.053393833339214325
+12/02/2023 22:42:04 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 20 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:43:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:44:16 - INFO - trainer.finetune_evaluator - Epoch 21 Eval Result: R@10:0.06357099115848541, R@50:0.16256532073020935, NDCG@10:0.03230612725019455, NDCG@50:0.05373537167906761
+12/02/2023 22:44:16 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 21 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:46:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:46:28 - INFO - trainer.finetune_evaluator - Epoch 22 Eval Result: R@10:0.06306534260511398, R@50:0.1651497334241867, NDCG@10:0.03212851285934448, NDCG@50:0.05412384867668152
+12/02/2023 22:48:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:48:40 - INFO - trainer.finetune_evaluator - Epoch 23 Eval Result: R@10:0.06446991860866547, R@50:0.16543065011501312, NDCG@10:0.033128008246421814, NDCG@50:0.054885175079107285
+12/02/2023 22:48:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 23 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:50:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:50:53 - INFO - trainer.finetune_evaluator - Epoch 24 Eval Result: R@10:0.06385190039873123, R@50:0.1633518785238266, NDCG@10:0.03246274217963219, NDCG@50:0.05392702296376228
+12/02/2023 22:52:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:53:05 - INFO - trainer.finetune_evaluator - Epoch 25 Eval Result: R@10:0.06469465047121048, R@50:0.16725659370422363, NDCG@10:0.03334527835249901, NDCG@50:0.05553397163748741
+12/02/2023 22:53:05 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 25 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:54:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:55:17 - INFO - trainer.finetune_evaluator - Epoch 26 Eval Result: R@10:0.06522838771343231, R@50:0.16450363397598267, NDCG@10:0.033665984869003296, NDCG@50:0.05517497658729553
+12/02/2023 22:55:17 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 26 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:57:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:57:29 - INFO - trainer.finetune_evaluator - Epoch 27 Eval Result: R@10:0.06725096702575684, R@50:0.16742514073848724, NDCG@10:0.0341762937605381, NDCG@50:0.05576254799962044
+12/02/2023 22:57:29 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 27 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 22:59:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 22:59:41 - INFO - trainer.finetune_evaluator - Epoch 28 Eval Result: R@10:0.06607113033533096, R@50:0.1686049848794937, NDCG@10:0.033684417605400085, NDCG@50:0.0557611808180809
+12/02/2023 23:01:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:01:53 - INFO - trainer.finetune_evaluator - Epoch 29 Eval Result: R@10:0.06590258330106735, R@50:0.16708804666996002, NDCG@10:0.03394584357738495, NDCG@50:0.05577727034687996
+12/02/2023 23:03:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:04:05 - INFO - trainer.finetune_evaluator - Epoch 30 Eval Result: R@10:0.06609921902418137, R@50:0.16663858294487, NDCG@10:0.03439917415380478, NDCG@50:0.05616961792111397
+12/02/2023 23:05:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:06:16 - INFO - trainer.finetune_evaluator - Epoch 31 Eval Result: R@10:0.06618349254131317, R@50:0.16897016763687134, NDCG@10:0.0341179184615612, NDCG@50:0.0563545823097229
+12/02/2023 23:08:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:08:28 - INFO - trainer.finetune_evaluator - Epoch 32 Eval Result: R@10:0.06733524799346924, R@50:0.16725659370422363, NDCG@10:0.0343850739300251, NDCG@50:0.0559559091925621
+12/02/2023 23:08:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 32 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:10:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:10:40 - INFO - trainer.finetune_evaluator - Epoch 33 Eval Result: R@10:0.06761615723371506, R@50:0.1685487926006317, NDCG@10:0.034131377935409546, NDCG@50:0.05596104636788368
+12/02/2023 23:10:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 33 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:12:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:12:52 - INFO - trainer.finetune_evaluator - Epoch 34 Eval Result: R@10:0.06792516261339188, R@50:0.1699252873659134, NDCG@10:0.03456491604447365, NDCG@50:0.05652772635221481
+12/02/2023 23:12:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 34 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:14:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:15:05 - INFO - trainer.finetune_evaluator - Epoch 35 Eval Result: R@10:0.06739142537117004, R@50:0.16956008970737457, NDCG@10:0.03437277674674988, NDCG@50:0.05638275668025017
+12/02/2023 23:16:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:17:16 - INFO - trainer.finetune_evaluator - Epoch 36 Eval Result: R@10:0.06711051613092422, R@50:0.16770605742931366, NDCG@10:0.034616511315107346, NDCG@50:0.05649709329009056
+12/02/2023 23:19:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:19:28 - INFO - trainer.finetune_evaluator - Epoch 37 Eval Result: R@10:0.06772852689027786, R@50:0.16866116225719452, NDCG@10:0.03420019522309303, NDCG@50:0.055927574634552
+12/02/2023 23:21:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:21:40 - INFO - trainer.finetune_evaluator - Epoch 38 Eval Result: R@10:0.06657677888870239, R@50:0.16897016763687134, NDCG@10:0.03409217670559883, NDCG@50:0.05626038834452629
+12/02/2023 23:23:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:23:52 - INFO - trainer.finetune_evaluator - Epoch 39 Eval Result: R@10:0.06896454840898514, R@50:0.17141412198543549, NDCG@10:0.0352831706404686, NDCG@50:0.05736185237765312
+12/02/2023 23:23:52 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 39 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:25:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:26:04 - INFO - trainer.finetune_evaluator - Epoch 40 Eval Result: R@10:0.06755997985601425, R@50:0.16970054805278778, NDCG@10:0.034738264977931976, NDCG@50:0.05684570223093033
+12/02/2023 23:27:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:28:16 - INFO - trainer.finetune_evaluator - Epoch 41 Eval Result: R@10:0.06921737641096115, R@50:0.17127366364002228, NDCG@10:0.03499415144324303, NDCG@50:0.05704067647457123
+12/02/2023 23:28:16 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 41 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:30:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:30:28 - INFO - trainer.finetune_evaluator - Epoch 42 Eval Result: R@10:0.06938592344522476, R@50:0.17065565288066864, NDCG@10:0.03574953228235245, NDCG@50:0.057578474283218384
+12/02/2023 23:30:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 42 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:32:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:32:40 - INFO - trainer.finetune_evaluator - Epoch 43 Eval Result: R@10:0.0684308111667633, R@50:0.17045901715755463, NDCG@10:0.03489816561341286, NDCG@50:0.05696805939078331
+12/02/2023 23:34:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:34:52 - INFO - trainer.finetune_evaluator - Epoch 44 Eval Result: R@10:0.06755997985601425, R@50:0.1716669499874115, NDCG@10:0.0345870703458786, NDCG@50:0.05702409893274307
+12/02/2023 23:36:47 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:37:04 - INFO - trainer.finetune_evaluator - Epoch 45 Eval Result: R@10:0.06961065530776978, R@50:0.17110511660575867, NDCG@10:0.03554876893758774, NDCG@50:0.057487815618515015
+12/02/2023 23:37:04 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 45 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:38:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:39:16 - INFO - trainer.finetune_evaluator - Epoch 46 Eval Result: R@10:0.06890836358070374, R@50:0.17200404405593872, NDCG@10:0.034756407141685486, NDCG@50:0.0570392943918705
+12/02/2023 23:41:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:41:28 - INFO - trainer.finetune_evaluator - Epoch 47 Eval Result: R@10:0.06986347585916519, R@50:0.17206023633480072, NDCG@10:0.035609882324934006, NDCG@50:0.05764659866690636
+12/02/2023 23:41:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 47 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:43:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:43:40 - INFO - trainer.finetune_evaluator - Epoch 48 Eval Result: R@10:0.0701163038611412, R@50:0.16956008970737457, NDCG@10:0.035631854087114334, NDCG@50:0.05712593346834183
+12/02/2023 23:43:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 48 to ./weights/finetune-Sports-8192batch-ngcf
+12/02/2023 23:45:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:45:52 - INFO - trainer.finetune_evaluator - Epoch 49 Eval Result: R@10:0.06814989447593689, R@50:0.17093656957149506, NDCG@10:0.03485690802335739, NDCG@50:0.05711854621767998
+12/02/2023 23:47:46 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:48:04 - INFO - trainer.finetune_evaluator - Epoch 50 Eval Result: R@10:0.06902073323726654, R@50:0.17138603329658508, NDCG@10:0.03497305139899254, NDCG@50:0.05709340050816536
+12/02/2023 23:49:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:50:16 - INFO - trainer.finetune_evaluator - Epoch 51 Eval Result: R@10:0.06916119158267975, R@50:0.1716950386762619, NDCG@10:0.035272784531116486, NDCG@50:0.05735857039690018
+12/02/2023 23:52:10 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:52:27 - INFO - trainer.finetune_evaluator - Epoch 52 Eval Result: R@10:0.06772852689027786, R@50:0.1699814647436142, NDCG@10:0.035068999975919724, NDCG@50:0.057193975895643234
+12/02/2023 23:54:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:54:39 - INFO - trainer.finetune_evaluator - Epoch 53 Eval Result: R@10:0.06944210827350616, R@50:0.1717231273651123, NDCG@10:0.035372085869312286, NDCG@50:0.05741630494594574
+12/02/2023 23:56:34 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:56:51 - INFO - trainer.finetune_evaluator - Epoch 54 Eval Result: R@10:0.06938592344522476, R@50:0.17217259109020233, NDCG@10:0.035265300422906876, NDCG@50:0.05750852823257446
+12/02/2023 23:58:46 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/02/2023 23:59:03 - INFO - trainer.finetune_evaluator - Epoch 55 Eval Result: R@10:0.06868363916873932, R@50:0.17262205481529236, NDCG@10:0.03512025251984596, NDCG@50:0.057582128793001175
+12/03/2023 00:00:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 00:01:15 - INFO - trainer.finetune_evaluator - Epoch 56 Eval Result: R@10:0.06747569888830185, R@50:0.1698971837759018, NDCG@10:0.03451700881123543, NDCG@50:0.05668513476848602
+12/03/2023 00:03:10 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 00:03:27 - INFO - trainer.finetune_evaluator - Epoch 57 Eval Result: R@10:0.06814989447593689, R@50:0.17273442447185516, NDCG@10:0.034960899502038956, NDCG@50:0.05754803121089935
+12/03/2023 00:05:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 00:05:39 - INFO - trainer.finetune_evaluator - Epoch 58 Eval Result: R@10:0.06935782730579376, R@50:0.17088039219379425, NDCG@10:0.035311467945575714, NDCG@50:0.057326920330524445
+12/03/2023 00:05:39 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 00:05:39 - INFO - trainer.finetune_evaluator - ***** Run test *****
+12/03/2023 00:05:57 - INFO - trainer.finetune_evaluator - Test Result: R@10:0.06154840439558029, R@50:0.15722793340682983, NDCG@10:0.031928133219480515, NDCG@50:0.052679091691970825
+12/03/2023 01:32:54 - INFO - __main__ - {'config': './configs/finetuning/finetune_amazon.yaml', 'wandb_enable': False, 'project_name': '', 'display_name': '', 'num_worker': 4, 'train_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'train_seq_file': './dataset/amazon/processed/Sports/train_seq.jsonl', 'eval_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'eval_seq_file': './dataset/amazon/processed/Sports/eval_seq.jsonl', 'test_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'test_seq_file': './dataset/amazon/processed/Sports/test_seq.jsonl', 'max_seq_length': 20, 'train_vision_format': 'embed', 'eval_vision_format': 'embed', 'test_vision_format': 'embed', 'max_vision_frames': 10, 'train_text_format': 'embed', 'eval_text_format': 'embed', 'test_text_format': 'embed', 'clip_model_path': './weights/clip/ViT-B-32.pt', 'vision_feature_embed_dim': 512, 'text_feature_embed_dim': 512, 'fusion_embed_dim': 512, 'fusion_layers': 2, 'fusion_heads': 8, 'fusion_feedforward_dim': 1024, 'fusion_dropout': 0.5, 'fusion_embed_dropout': 0.2, 'initializer_range': 0.02, 'path': './adj_mat/Sports', 'seed': 42, 'log_file': './logs/finetune-amazon-2layer-ngcf-sports.log', 'train_batch_size': 1024, 'eval_batch_size': 1024, 'test_batch_size': 1024, 'num_train_epochs': 500, 'learning_rate': 0.001, 'lr_scheduler_gamma': 1.0, 'max_grad_norm': 1.0, 'contrastive_temperature': 0.05, 'ce_mask_ratio': 0.2, 'early_stopping': 10, 'model_save_path': './weights/finetune-Sports-8192batch-ngcf', 'model_resume_path': './weights/pretrain-webvid-2layer-512dim', 'rank': 0, 'local_rank': 0, 'world_size': 2, 'device': device(type='cuda', index=0)}
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/pretrain-webvid-2layer-512dim
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer - ***** Run training *****
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer -   Num examples = 189543
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer -   Num Epochs = 500
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer -   Instantaneous batch size per device = 1024
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer -   Total train batch size = 2048
+12/03/2023 01:33:30 - INFO - trainer.finetune_trainer -   Total steps = 46500
+12/03/2023 01:34:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:34:55 - INFO - trainer.finetune_evaluator - Epoch 0 Eval Result: R@10:0.026040788739919662, R@50:0.06952638179063797, NDCG@10:0.013027491047978401, NDCG@50:0.02239145152270794
+12/03/2023 01:34:55 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 0 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:36:04 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:36:14 - INFO - trainer.finetune_evaluator - Epoch 1 Eval Result: R@10:0.037754930555820465, R@50:0.10649474710226059, NDCG@10:0.019472453743219376, NDCG@50:0.034163154661655426
+12/03/2023 01:36:14 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 1 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:37:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:37:34 - INFO - trainer.finetune_evaluator - Epoch 2 Eval Result: R@10:0.04219338297843933, R@50:0.11806843429803848, NDCG@10:0.021223364397883415, NDCG@50:0.03751789405941963
+12/03/2023 01:37:34 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 2 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:38:43 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:38:54 - INFO - trainer.finetune_evaluator - Epoch 3 Eval Result: R@10:0.046407103538513184, R@50:0.12719815969467163, NDCG@10:0.023629624396562576, NDCG@50:0.04098675400018692
+12/03/2023 01:38:54 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 3 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:40:02 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:40:13 - INFO - trainer.finetune_evaluator - Epoch 4 Eval Result: R@10:0.04918815940618515, R@50:0.13250744342803955, NDCG@10:0.024787787348031998, NDCG@50:0.04268430173397064
+12/03/2023 01:40:13 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 4 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:41:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:41:33 - INFO - trainer.finetune_evaluator - Epoch 5 Eval Result: R@10:0.05011517554521561, R@50:0.13559751212596893, NDCG@10:0.025265417993068695, NDCG@50:0.043757230043411255
+12/03/2023 01:41:33 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 5 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:42:42 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:42:53 - INFO - trainer.finetune_evaluator - Epoch 6 Eval Result: R@10:0.053261421620845795, R@50:0.13899657130241394, NDCG@10:0.026819147169589996, NDCG@50:0.0452280268073082
+12/03/2023 01:42:53 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 6 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:44:01 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:44:12 - INFO - trainer.finetune_evaluator - Epoch 7 Eval Result: R@10:0.05314905568957329, R@50:0.14374403655529022, NDCG@10:0.027197381481528282, NDCG@50:0.04672154411673546
+12/03/2023 01:45:21 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:45:32 - INFO - trainer.finetune_evaluator - Epoch 8 Eval Result: R@10:0.054413169622421265, R@50:0.146609365940094, NDCG@10:0.027516542002558708, NDCG@50:0.047432832419872284
+12/03/2023 01:45:32 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 8 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:46:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:46:51 - INFO - trainer.finetune_evaluator - Epoch 9 Eval Result: R@10:0.05567728728055954, R@50:0.14804202318191528, NDCG@10:0.028137333691120148, NDCG@50:0.04806169494986534
+12/03/2023 01:46:51 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 9 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:48:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:48:11 - INFO - trainer.finetune_evaluator - Epoch 10 Eval Result: R@10:0.05536828190088272, R@50:0.14801393449306488, NDCG@10:0.028176743537187576, NDCG@50:0.0482083298265934
+12/03/2023 01:49:19 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:49:30 - INFO - trainer.finetune_evaluator - Epoch 11 Eval Result: R@10:0.05702567845582962, R@50:0.15236811339855194, NDCG@10:0.02935655601322651, NDCG@50:0.049966081976890564
+12/03/2023 01:49:30 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 11 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:50:39 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:50:50 - INFO - trainer.finetune_evaluator - Epoch 12 Eval Result: R@10:0.05784032866358757, R@50:0.15385696291923523, NDCG@10:0.02958124689757824, NDCG@50:0.050263866782188416
+12/03/2023 01:50:50 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 12 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:51:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:52:09 - INFO - trainer.finetune_evaluator - Epoch 13 Eval Result: R@10:0.05966627597808838, R@50:0.15787404775619507, NDCG@10:0.030214080587029457, NDCG@50:0.05136793479323387
+12/03/2023 01:52:09 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 13 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:53:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:53:29 - INFO - trainer.finetune_evaluator - Epoch 14 Eval Result: R@10:0.05966627597808838, R@50:0.15554244816303253, NDCG@10:0.030652152374386787, NDCG@50:0.05122718960046768
+12/03/2023 01:54:38 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:54:49 - INFO - trainer.finetune_evaluator - Epoch 15 Eval Result: R@10:0.060452837496995926, R@50:0.1548682600259781, NDCG@10:0.03086051344871521, NDCG@50:0.051263269037008286
+12/03/2023 01:54:49 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 15 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:55:57 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:56:08 - INFO - trainer.finetune_evaluator - Epoch 16 Eval Result: R@10:0.06014382839202881, R@50:0.156525656580925, NDCG@10:0.03045354038476944, NDCG@50:0.05120856314897537
+12/03/2023 01:57:17 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:57:28 - INFO - trainer.finetune_evaluator - Epoch 17 Eval Result: R@10:0.060930389910936356, R@50:0.1565818339586258, NDCG@10:0.030825693160295486, NDCG@50:0.051477689296007156
+12/03/2023 01:57:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 17 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 01:58:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 01:58:47 - INFO - trainer.finetune_evaluator - Epoch 18 Eval Result: R@10:0.06031237915158272, R@50:0.1583235114812851, NDCG@10:0.030700989067554474, NDCG@50:0.05187352001667023
+12/03/2023 01:59:56 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:00:07 - INFO - trainer.finetune_evaluator - Epoch 19 Eval Result: R@10:0.06216641515493393, R@50:0.1616102010011673, NDCG@10:0.031755480915308, NDCG@50:0.053110696375370026
+12/03/2023 02:00:07 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 19 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:01:15 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:01:26 - INFO - trainer.finetune_evaluator - Epoch 20 Eval Result: R@10:0.06180122494697571, R@50:0.1614697426557541, NDCG@10:0.031502705067396164, NDCG@50:0.0530143566429615
+12/03/2023 02:02:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:02:46 - INFO - trainer.finetune_evaluator - Epoch 21 Eval Result: R@10:0.06199786812067032, R@50:0.16079555451869965, NDCG@10:0.03189661726355553, NDCG@50:0.053309157490730286
+12/03/2023 02:03:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:04:05 - INFO - trainer.finetune_evaluator - Epoch 22 Eval Result: R@10:0.06182931736111641, R@50:0.16214394569396973, NDCG@10:0.03168396279215813, NDCG@50:0.05329176411032677
+12/03/2023 02:05:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:05:25 - INFO - trainer.finetune_evaluator - Epoch 23 Eval Result: R@10:0.06446991860866547, R@50:0.16380134224891663, NDCG@10:0.03281283378601074, NDCG@50:0.054250381886959076
+12/03/2023 02:05:25 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 23 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:06:34 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:06:45 - INFO - trainer.finetune_evaluator - Epoch 24 Eval Result: R@10:0.06213832274079323, R@50:0.16413843631744385, NDCG@10:0.03224114701151848, NDCG@50:0.05431414395570755
+12/03/2023 02:07:53 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:08:04 - INFO - trainer.finetune_evaluator - Epoch 25 Eval Result: R@10:0.06264396756887436, R@50:0.1617787480354309, NDCG@10:0.03253035992383957, NDCG@50:0.05392955243587494
+12/03/2023 02:09:13 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:09:24 - INFO - trainer.finetune_evaluator - Epoch 26 Eval Result: R@10:0.06458228081464767, R@50:0.16301478445529938, NDCG@10:0.033028289675712585, NDCG@50:0.05429406464099884
+12/03/2023 02:09:24 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 26 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:10:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:10:43 - INFO - trainer.finetune_evaluator - Epoch 27 Eval Result: R@10:0.0632619857788086, R@50:0.16408225893974304, NDCG@10:0.032192304730415344, NDCG@50:0.05393793433904648
+12/03/2023 02:11:52 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:12:03 - INFO - trainer.finetune_evaluator - Epoch 28 Eval Result: R@10:0.0650879293680191, R@50:0.16413843631744385, NDCG@10:0.03272881358861923, NDCG@50:0.05413514003157616
+12/03/2023 02:12:03 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 28 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:13:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:13:22 - INFO - trainer.finetune_evaluator - Epoch 29 Eval Result: R@10:0.06522838771343231, R@50:0.16559919714927673, NDCG@10:0.03315753862261772, NDCG@50:0.05481667071580887
+12/03/2023 02:13:22 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 29 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:14:31 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:14:42 - INFO - trainer.finetune_evaluator - Epoch 30 Eval Result: R@10:0.0634305328130722, R@50:0.16540256142616272, NDCG@10:0.0322251096367836, NDCG@50:0.05424497276544571
+12/03/2023 02:15:50 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:16:01 - INFO - trainer.finetune_evaluator - Epoch 31 Eval Result: R@10:0.06525647640228271, R@50:0.16711613535881042, NDCG@10:0.033471204340457916, NDCG@50:0.05543825775384903
+12/03/2023 02:16:01 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 31 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:17:10 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:17:21 - INFO - trainer.finetune_evaluator - Epoch 32 Eval Result: R@10:0.06612731516361237, R@50:0.1666947603225708, NDCG@10:0.033709555864334106, NDCG@50:0.055434662848711014
+12/03/2023 02:17:21 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 32 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:18:30 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:18:41 - INFO - trainer.finetune_evaluator - Epoch 33 Eval Result: R@10:0.06629586219787598, R@50:0.16725659370422363, NDCG@10:0.033777058124542236, NDCG@50:0.05562102794647217
+12/03/2023 02:18:41 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 33 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:19:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:20:00 - INFO - trainer.finetune_evaluator - Epoch 34 Eval Result: R@10:0.06618349254131317, R@50:0.1667509377002716, NDCG@10:0.033586155623197556, NDCG@50:0.05528834089636803
+12/03/2023 02:21:09 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:21:20 - INFO - trainer.finetune_evaluator - Epoch 35 Eval Result: R@10:0.06685768812894821, R@50:0.1683240681886673, NDCG@10:0.03387963026762009, NDCG@50:0.055649157613515854
+12/03/2023 02:21:20 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 35 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:22:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:22:39 - INFO - trainer.finetune_evaluator - Epoch 36 Eval Result: R@10:0.06716669350862503, R@50:0.16714422404766083, NDCG@10:0.03377341851592064, NDCG@50:0.055392567068338394
+12/03/2023 02:22:39 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 36 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:23:48 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:23:59 - INFO - trainer.finetune_evaluator - Epoch 37 Eval Result: R@10:0.06685768812894821, R@50:0.1684645265340805, NDCG@10:0.03410269692540169, NDCG@50:0.055993884801864624
+12/03/2023 02:25:07 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:25:18 - INFO - trainer.finetune_evaluator - Epoch 38 Eval Result: R@10:0.0666891410946846, R@50:0.16725659370422363, NDCG@10:0.03404314070940018, NDCG@50:0.05576656758785248
+12/03/2023 02:26:27 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:26:38 - INFO - trainer.finetune_evaluator - Epoch 39 Eval Result: R@10:0.06713860481977463, R@50:0.16953200101852417, NDCG@10:0.034065131098032, NDCG@50:0.056132201105356216
+12/03/2023 02:27:46 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:27:57 - INFO - trainer.finetune_evaluator - Epoch 40 Eval Result: R@10:0.06604303419589996, R@50:0.16750942170619965, NDCG@10:0.0331457294523716, NDCG@50:0.055190399289131165
+12/03/2023 02:29:06 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:29:17 - INFO - trainer.finetune_evaluator - Epoch 41 Eval Result: R@10:0.06784088909626007, R@50:0.17037475109100342, NDCG@10:0.034905485808849335, NDCG@50:0.057026661932468414
+12/03/2023 02:29:17 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 41 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:30:25 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:30:36 - INFO - trainer.finetune_evaluator - Epoch 42 Eval Result: R@10:0.06618349254131317, R@50:0.16689139604568481, NDCG@10:0.03374262526631355, NDCG@50:0.05550573021173477
+12/03/2023 02:31:45 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:31:56 - INFO - trainer.finetune_evaluator - Epoch 43 Eval Result: R@10:0.06809371709823608, R@50:0.16936345398426056, NDCG@10:0.034803617745637894, NDCG@50:0.05665980279445648
+12/03/2023 02:31:56 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 43 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:33:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:33:16 - INFO - trainer.finetune_evaluator - Epoch 44 Eval Result: R@10:0.06691387295722961, R@50:0.1699533760547638, NDCG@10:0.03401130810379982, NDCG@50:0.05624798312783241
+12/03/2023 02:34:24 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:34:35 - INFO - trainer.finetune_evaluator - Epoch 45 Eval Result: R@10:0.06733524799346924, R@50:0.17048710584640503, NDCG@10:0.034515202045440674, NDCG@50:0.05674169585108757
+12/03/2023 02:35:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:35:55 - INFO - trainer.finetune_evaluator - Epoch 46 Eval Result: R@10:0.06739142537117004, R@50:0.17093656957149506, NDCG@10:0.03439086303114891, NDCG@50:0.05675787106156349
+12/03/2023 02:37:03 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:37:14 - INFO - trainer.finetune_evaluator - Epoch 47 Eval Result: R@10:0.06764425337314606, R@50:0.16967245936393738, NDCG@10:0.03424619510769844, NDCG@50:0.05625319480895996
+12/03/2023 02:38:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:38:34 - INFO - trainer.finetune_evaluator - Epoch 48 Eval Result: R@10:0.06775661557912827, R@50:0.17088039219379425, NDCG@10:0.03493836894631386, NDCG@50:0.05719424784183502
+12/03/2023 02:39:42 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:39:53 - INFO - trainer.finetune_evaluator - Epoch 49 Eval Result: R@10:0.06896454840898514, R@50:0.17040283977985382, NDCG@10:0.035157568752765656, NDCG@50:0.057005301117897034
+12/03/2023 02:39:53 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 49 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:41:02 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:41:13 - INFO - trainer.finetune_evaluator - Epoch 50 Eval Result: R@10:0.06873981654644012, R@50:0.1714984029531479, NDCG@10:0.03516516089439392, NDCG@50:0.05738776549696922
+12/03/2023 02:42:21 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:42:32 - INFO - trainer.finetune_evaluator - Epoch 51 Eval Result: R@10:0.06918928027153015, R@50:0.17099276185035706, NDCG@10:0.035054776817560196, NDCG@50:0.057027701288461685
+12/03/2023 02:42:32 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 51 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:43:41 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:43:52 - INFO - trainer.finetune_evaluator - Epoch 52 Eval Result: R@10:0.0682622641324997, R@50:0.17206023633480072, NDCG@10:0.03460326045751572, NDCG@50:0.05702361837029457
+12/03/2023 02:45:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:45:11 - INFO - trainer.finetune_evaluator - Epoch 53 Eval Result: R@10:0.06727906316518784, R@50:0.17054329812526703, NDCG@10:0.0343388095498085, NDCG@50:0.05672725290060043
+12/03/2023 02:46:20 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:46:31 - INFO - trainer.finetune_evaluator - Epoch 54 Eval Result: R@10:0.06711051613092422, R@50:0.17079611122608185, NDCG@10:0.03441449627280235, NDCG@50:0.05680735409259796
+12/03/2023 02:47:39 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:47:50 - INFO - trainer.finetune_evaluator - Epoch 55 Eval Result: R@10:0.0683746263384819, R@50:0.17147031426429749, NDCG@10:0.034874510020017624, NDCG@50:0.057127609848976135
+12/03/2023 02:48:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:49:10 - INFO - trainer.finetune_evaluator - Epoch 56 Eval Result: R@10:0.06910500675439835, R@50:0.17293106019496918, NDCG@10:0.03508393466472626, NDCG@50:0.057509973645210266
+12/03/2023 02:50:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:50:29 - INFO - trainer.finetune_evaluator - Epoch 57 Eval Result: R@10:0.06862745434045792, R@50:0.16894207894802094, NDCG@10:0.03492549806833267, NDCG@50:0.05667205899953842
+12/03/2023 02:51:38 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:51:49 - INFO - trainer.finetune_evaluator - Epoch 58 Eval Result: R@10:0.06865554302930832, R@50:0.16888590157032013, NDCG@10:0.03495847061276436, NDCG@50:0.056655291467905045
+12/03/2023 02:52:57 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:53:08 - INFO - trainer.finetune_evaluator - Epoch 59 Eval Result: R@10:0.06823417544364929, R@50:0.1717793196439743, NDCG@10:0.0349898524582386, NDCG@50:0.05746399611234665
+12/03/2023 02:54:17 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:54:28 - INFO - trainer.finetune_evaluator - Epoch 60 Eval Result: R@10:0.06851508468389511, R@50:0.17054329812526703, NDCG@10:0.03496400639414787, NDCG@50:0.05705471336841583
+12/03/2023 02:55:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:55:47 - INFO - trainer.finetune_evaluator - Epoch 61 Eval Result: R@10:0.06952638179063797, R@50:0.17194786667823792, NDCG@10:0.03535231575369835, NDCG@50:0.05742868408560753
+12/03/2023 02:55:47 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 61 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 02:56:56 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:57:07 - INFO - trainer.finetune_evaluator - Epoch 62 Eval Result: R@10:0.06873981654644012, R@50:0.17248161137104034, NDCG@10:0.03456445038318634, NDCG@50:0.056916385889053345
+12/03/2023 02:58:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:58:27 - INFO - trainer.finetune_evaluator - Epoch 63 Eval Result: R@10:0.06932973861694336, R@50:0.1702061891555786, NDCG@10:0.03496183454990387, NDCG@50:0.056755777448415756
+12/03/2023 02:59:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 02:59:46 - INFO - trainer.finetune_evaluator - Epoch 64 Eval Result: R@10:0.07039721310138702, R@50:0.17214450240135193, NDCG@10:0.03606448322534561, NDCG@50:0.05806436017155647
+12/03/2023 02:59:46 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 64 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 03:00:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:01:06 - INFO - trainer.finetune_evaluator - Epoch 65 Eval Result: R@10:0.06932973861694336, R@50:0.17242541909217834, NDCG@10:0.03535286337137222, NDCG@50:0.05761979520320892
+12/03/2023 03:02:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:02:25 - INFO - trainer.finetune_evaluator - Epoch 66 Eval Result: R@10:0.06812180578708649, R@50:0.1715826839208603, NDCG@10:0.03502371907234192, NDCG@50:0.057358138263225555
+12/03/2023 03:03:34 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:03:45 - INFO - trainer.finetune_evaluator - Epoch 67 Eval Result: R@10:0.06924546509981155, R@50:0.17236924171447754, NDCG@10:0.03538941964507103, NDCG@50:0.05759795755147934
+12/03/2023 03:04:53 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:05:04 - INFO - trainer.finetune_evaluator - Epoch 68 Eval Result: R@10:0.06896454840898514, R@50:0.17267824709415436, NDCG@10:0.03564278781414032, NDCG@50:0.058075569570064545
+12/03/2023 03:06:13 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:06:24 - INFO - trainer.finetune_evaluator - Epoch 69 Eval Result: R@10:0.06989157199859619, R@50:0.1734086275100708, NDCG@10:0.03549498692154884, NDCG@50:0.05780097097158432
+12/03/2023 03:07:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:07:43 - INFO - trainer.finetune_evaluator - Epoch 70 Eval Result: R@10:0.06980729103088379, R@50:0.17371763288974762, NDCG@10:0.03576810285449028, NDCG@50:0.05822546407580376
+12/03/2023 03:08:52 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:09:03 - INFO - trainer.finetune_evaluator - Epoch 71 Eval Result: R@10:0.06969492882490158, R@50:0.1718916893005371, NDCG@10:0.0352579802274704, NDCG@50:0.057393576949834824
+12/03/2023 03:10:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:10:22 - INFO - trainer.finetune_evaluator - Epoch 72 Eval Result: R@10:0.06935782730579376, R@50:0.1732681691646576, NDCG@10:0.035472773015499115, NDCG@50:0.05788297578692436
+12/03/2023 03:11:31 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:11:42 - INFO - trainer.finetune_evaluator - Epoch 73 Eval Result: R@10:0.07034102827310562, R@50:0.1732119768857956, NDCG@10:0.03583938255906105, NDCG@50:0.0580136775970459
+12/03/2023 03:12:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 03:13:02 - INFO - trainer.finetune_evaluator - Epoch 74 Eval Result: R@10:0.06916119158267975, R@50:0.17225687205791473, NDCG@10:0.03541508689522743, NDCG@50:0.057681355625391006
+12/03/2023 03:13:02 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 03:13:02 - INFO - trainer.finetune_evaluator - ***** Run test *****
+12/03/2023 03:13:13 - INFO - trainer.finetune_evaluator - Test Result: R@10:0.061773136258125305, R@50:0.15717175602912903, NDCG@10:0.03128344193100929, NDCG@50:0.05192948877811432
+12/03/2023 05:11:04 - INFO - __main__ - {'config': './configs/finetuning/finetune_amazon.yaml', 'wandb_enable': False, 'project_name': '', 'display_name': '', 'num_worker': 4, 'train_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'train_seq_file': './dataset/amazon/processed/Sports/train_seq.jsonl', 'eval_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'eval_seq_file': './dataset/amazon/processed/Sports/eval_seq.jsonl', 'test_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'test_seq_file': './dataset/amazon/processed/Sports/test_seq.jsonl', 'max_seq_length': 20, 'train_vision_format': 'embed', 'eval_vision_format': 'embed', 'test_vision_format': 'embed', 'max_vision_frames': 10, 'train_text_format': 'embed', 'eval_text_format': 'embed', 'test_text_format': 'embed', 'clip_model_path': './weights/clip/ViT-B-32.pt', 'vision_feature_embed_dim': 512, 'text_feature_embed_dim': 512, 'fusion_embed_dim': 512, 'fusion_layers': 2, 'fusion_heads': 8, 'fusion_feedforward_dim': 1024, 'fusion_dropout': 0.5, 'fusion_embed_dropout': 0.2, 'initializer_range': 0.02, 'path': './adj_mat/Sports', 'seed': 42, 'log_file': './logs/finetune-amazon-2layer-ngcf-sports.log', 'train_batch_size': 1024, 'eval_batch_size': 1024, 'test_batch_size': 1024, 'num_train_epochs': 500, 'learning_rate': 0.001, 'lr_scheduler_gamma': 1.0, 'max_grad_norm': 1.0, 'contrastive_temperature': 0.05, 'ce_mask_ratio': 0.2, 'early_stopping': 10, 'model_save_path': './weights/finetune-Sports-8192batch-ngcf', 'model_resume_path': './weights/pretrain-webvid-2layer-512dim', 'rank': 0, 'local_rank': 0, 'world_size': 2, 'device': device(type='cuda', index=0)}
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/pretrain-webvid-2layer-512dim
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer - ***** Run training *****
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer -   Num examples = 189543
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer -   Num Epochs = 500
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer -   Instantaneous batch size per device = 1024
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer -   Total train batch size = 2048
+12/03/2023 05:11:49 - INFO - trainer.finetune_trainer -   Total steps = 46500
+12/03/2023 05:14:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:14:51 - INFO - trainer.finetune_evaluator - Epoch 0 Eval Result: R@10:0.02469239942729473, R@50:0.06719478964805603, NDCG@10:0.013036126270890236, NDCG@50:0.0221025999635458
+12/03/2023 05:14:51 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 0 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:17:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:17:46 - INFO - trainer.finetune_evaluator - Epoch 1 Eval Result: R@10:0.03561997786164284, R@50:0.10270240157842636, NDCG@10:0.017803620547056198, NDCG@50:0.03218282386660576
+12/03/2023 05:17:46 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 1 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:20:19 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:20:42 - INFO - trainer.finetune_evaluator - Epoch 2 Eval Result: R@10:0.04314849153161049, R@50:0.11919209361076355, NDCG@10:0.021871745586395264, NDCG@50:0.0382048524916172
+12/03/2023 05:20:42 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 2 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:23:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:23:37 - INFO - trainer.finetune_evaluator - Epoch 3 Eval Result: R@10:0.04562054201960564, R@50:0.12643969058990479, NDCG@10:0.023133398965001106, NDCG@50:0.04047709330916405
+12/03/2023 05:23:37 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 3 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:26:09 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:26:32 - INFO - trainer.finetune_evaluator - Epoch 4 Eval Result: R@10:0.05014326795935631, R@50:0.1336030215024948, NDCG@10:0.02505641244351864, NDCG@50:0.04299852252006531
+12/03/2023 05:26:32 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 4 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:29:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:29:28 - INFO - trainer.finetune_evaluator - Epoch 5 Eval Result: R@10:0.05084555596113205, R@50:0.1366368979215622, NDCG@10:0.025859521701931953, NDCG@50:0.04423964023590088
+12/03/2023 05:29:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 5 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:32:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:32:23 - INFO - trainer.finetune_evaluator - Epoch 6 Eval Result: R@10:0.052446767687797546, R@50:0.14059779047966003, NDCG@10:0.026803938671946526, NDCG@50:0.04578503593802452
+12/03/2023 05:32:23 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 6 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:34:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:35:18 - INFO - trainer.finetune_evaluator - Epoch 7 Eval Result: R@10:0.054441262036561966, R@50:0.14604753255844116, NDCG@10:0.027801979333162308, NDCG@50:0.04748310521245003
+12/03/2023 05:35:18 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 7 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:37:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:38:14 - INFO - trainer.finetune_evaluator - Epoch 8 Eval Result: R@10:0.055424463003873825, R@50:0.1483510285615921, NDCG@10:0.02800026908516884, NDCG@50:0.04799874499440193
+12/03/2023 05:38:14 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 8 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:40:46 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:41:09 - INFO - trainer.finetune_evaluator - Epoch 9 Eval Result: R@10:0.05489072576165199, R@50:0.14790156483650208, NDCG@10:0.027904612943530083, NDCG@50:0.04790934920310974
+12/03/2023 05:43:41 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:44:04 - INFO - trainer.finetune_evaluator - Epoch 10 Eval Result: R@10:0.05784032866358757, R@50:0.15045788884162903, NDCG@10:0.029396869242191315, NDCG@50:0.04933851212263107
+12/03/2023 05:44:04 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 10 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:46:37 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:47:00 - INFO - trainer.finetune_evaluator - Epoch 11 Eval Result: R@10:0.05851452425122261, R@50:0.15298612415790558, NDCG@10:0.029630187898874283, NDCG@50:0.05001724511384964
+12/03/2023 05:47:00 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 11 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:49:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:49:55 - INFO - trainer.finetune_evaluator - Epoch 12 Eval Result: R@10:0.05946963280439377, R@50:0.15427833795547485, NDCG@10:0.030248552560806274, NDCG@50:0.050675999373197556
+12/03/2023 05:49:55 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 12 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:52:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:52:51 - INFO - trainer.finetune_evaluator - Epoch 13 Eval Result: R@10:0.05989100784063339, R@50:0.15607619285583496, NDCG@10:0.03076447919011116, NDCG@50:0.05152028799057007
+12/03/2023 05:52:51 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 13 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:55:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:55:46 - INFO - trainer.finetune_evaluator - Epoch 14 Eval Result: R@10:0.061070848256349564, R@50:0.1582954078912735, NDCG@10:0.03131820634007454, NDCG@50:0.05225960165262222
+12/03/2023 05:55:46 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 14 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 05:58:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 05:58:41 - INFO - trainer.finetune_evaluator - Epoch 15 Eval Result: R@10:0.06020001322031021, R@50:0.1565818339586258, NDCG@10:0.03100615181028843, NDCG@50:0.05180031433701515
+12/03/2023 06:01:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:01:37 - INFO - trainer.finetune_evaluator - Epoch 16 Eval Result: R@10:0.06132367253303528, R@50:0.1581268608570099, NDCG@10:0.031094983220100403, NDCG@50:0.05210266262292862
+12/03/2023 06:01:37 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 16 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:04:09 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:04:32 - INFO - trainer.finetune_evaluator - Epoch 17 Eval Result: R@10:0.06270015239715576, R@50:0.16250912845134735, NDCG@10:0.032180413603782654, NDCG@50:0.05369185656309128
+12/03/2023 06:04:32 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 17 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:07:04 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:07:27 - INFO - trainer.finetune_evaluator - Epoch 18 Eval Result: R@10:0.06247542053461075, R@50:0.16116073727607727, NDCG@10:0.03233414888381958, NDCG@50:0.053676262497901917
+12/03/2023 06:10:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:10:23 - INFO - trainer.finetune_evaluator - Epoch 19 Eval Result: R@10:0.061773136258125305, R@50:0.16203157603740692, NDCG@10:0.03197696432471275, NDCG@50:0.05367390438914299
+12/03/2023 06:12:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:13:17 - INFO - trainer.finetune_evaluator - Epoch 20 Eval Result: R@10:0.06317770481109619, R@50:0.1615540236234665, NDCG@10:0.03238476812839508, NDCG@50:0.053637418895959854
+12/03/2023 06:13:17 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 20 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:15:50 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:16:13 - INFO - trainer.finetune_evaluator - Epoch 21 Eval Result: R@10:0.06219450756907463, R@50:0.16380134224891663, NDCG@10:0.03184358775615692, NDCG@50:0.05384979024529457
+12/03/2023 06:18:45 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:19:08 - INFO - trainer.finetune_evaluator - Epoch 22 Eval Result: R@10:0.0633743479847908, R@50:0.16453172266483307, NDCG@10:0.03251972794532776, NDCG@50:0.0543183833360672
+12/03/2023 06:19:08 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 22 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:21:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:22:03 - INFO - trainer.finetune_evaluator - Epoch 23 Eval Result: R@10:0.06424518674612045, R@50:0.16385751962661743, NDCG@10:0.03321710228919983, NDCG@50:0.05488387495279312
+12/03/2023 06:22:03 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 23 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:24:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:24:58 - INFO - trainer.finetune_evaluator - Epoch 24 Eval Result: R@10:0.06469465047121048, R@50:0.1650935411453247, NDCG@10:0.033384814858436584, NDCG@50:0.05510667338967323
+12/03/2023 06:24:58 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 24 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:27:31 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:27:54 - INFO - trainer.finetune_evaluator - Epoch 25 Eval Result: R@10:0.06373953819274902, R@50:0.16453172266483307, NDCG@10:0.03323470801115036, NDCG@50:0.0550445094704628
+12/03/2023 06:30:26 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:30:49 - INFO - trainer.finetune_evaluator - Epoch 26 Eval Result: R@10:0.06455419212579727, R@50:0.1666104942560196, NDCG@10:0.03286442160606384, NDCG@50:0.05496477335691452
+12/03/2023 06:33:21 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:33:44 - INFO - trainer.finetune_evaluator - Epoch 27 Eval Result: R@10:0.0649755597114563, R@50:0.16585202515125275, NDCG@10:0.03322061896324158, NDCG@50:0.05505641549825668
+12/03/2023 06:33:44 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 27 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:36:17 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:36:40 - INFO - trainer.finetune_evaluator - Epoch 28 Eval Result: R@10:0.06536884605884552, R@50:0.1664419323205948, NDCG@10:0.03365861624479294, NDCG@50:0.05552032217383385
+12/03/2023 06:36:40 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 28 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:39:12 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:39:35 - INFO - trainer.finetune_evaluator - Epoch 29 Eval Result: R@10:0.06483510136604309, R@50:0.1652621030807495, NDCG@10:0.03334098309278488, NDCG@50:0.05517099052667618
+12/03/2023 06:42:08 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:42:31 - INFO - trainer.finetune_evaluator - Epoch 30 Eval Result: R@10:0.06632395088672638, R@50:0.1649811863899231, NDCG@10:0.033813558518886566, NDCG@50:0.055148039013147354
+12/03/2023 06:42:31 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 30 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:45:03 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:45:26 - INFO - trainer.finetune_evaluator - Epoch 31 Eval Result: R@10:0.06786898523569107, R@50:0.1682959794998169, NDCG@10:0.03487417474389076, NDCG@50:0.056565381586551666
+12/03/2023 06:45:26 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 31 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:47:59 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:48:21 - INFO - trainer.finetune_evaluator - Epoch 32 Eval Result: R@10:0.06775661557912827, R@50:0.16725659370422363, NDCG@10:0.034349486231803894, NDCG@50:0.055870410054922104
+12/03/2023 06:50:54 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:51:17 - INFO - trainer.finetune_evaluator - Epoch 33 Eval Result: R@10:0.06741952151060104, R@50:0.16812743246555328, NDCG@10:0.03399527445435524, NDCG@50:0.05572570487856865
+12/03/2023 06:53:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:54:12 - INFO - trainer.finetune_evaluator - Epoch 34 Eval Result: R@10:0.06764425337314606, R@50:0.16781842708587646, NDCG@10:0.03482092171907425, NDCG@50:0.056452471762895584
+12/03/2023 06:56:45 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 06:57:08 - INFO - trainer.finetune_evaluator - Epoch 35 Eval Result: R@10:0.06789707392454147, R@50:0.1680993288755417, NDCG@10:0.03471014276146889, NDCG@50:0.0563553161919117
+12/03/2023 06:57:08 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 35 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 06:59:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:00:03 - INFO - trainer.finetune_evaluator - Epoch 36 Eval Result: R@10:0.06764425337314606, R@50:0.1682116985321045, NDCG@10:0.03455207124352455, NDCG@50:0.05626875162124634
+12/03/2023 07:02:36 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:02:59 - INFO - trainer.finetune_evaluator - Epoch 37 Eval Result: R@10:0.06733524799346924, R@50:0.16863307356834412, NDCG@10:0.03461296111345291, NDCG@50:0.056468043476343155
+12/03/2023 07:05:31 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:05:54 - INFO - trainer.finetune_evaluator - Epoch 38 Eval Result: R@10:0.06972301751375198, R@50:0.16930726170539856, NDCG@10:0.03569231182336807, NDCG@50:0.05718427151441574
+12/03/2023 07:05:54 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 38 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 07:08:27 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:08:50 - INFO - trainer.finetune_evaluator - Epoch 39 Eval Result: R@10:0.06795325875282288, R@50:0.16941963136196136, NDCG@10:0.03489093855023384, NDCG@50:0.05678794905543327
+12/03/2023 07:11:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:11:45 - INFO - trainer.finetune_evaluator - Epoch 40 Eval Result: R@10:0.06736333668231964, R@50:0.16916681826114655, NDCG@10:0.034885473549366, NDCG@50:0.056855134665966034
+12/03/2023 07:14:18 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:14:41 - INFO - trainer.finetune_evaluator - Epoch 41 Eval Result: R@10:0.06952638179063797, R@50:0.16981291770935059, NDCG@10:0.035340566188097, NDCG@50:0.0570254884660244
+12/03/2023 07:17:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:17:36 - INFO - trainer.finetune_evaluator - Epoch 42 Eval Result: R@10:0.0682622641324997, R@50:0.16939154267311096, NDCG@10:0.03485259413719177, NDCG@50:0.05669061094522476
+12/03/2023 07:20:09 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:20:32 - INFO - trainer.finetune_evaluator - Epoch 43 Eval Result: R@10:0.06798134744167328, R@50:0.16871735453605652, NDCG@10:0.034765131771564484, NDCG@50:0.05652674287557602
+12/03/2023 07:23:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:23:28 - INFO - trainer.finetune_evaluator - Epoch 44 Eval Result: R@10:0.06868363916873932, R@50:0.1700095534324646, NDCG@10:0.035260509699583054, NDCG@50:0.057157717645168304
+12/03/2023 07:26:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:26:23 - INFO - trainer.finetune_evaluator - Epoch 45 Eval Result: R@10:0.06876791268587112, R@50:0.17062756419181824, NDCG@10:0.03498086333274841, NDCG@50:0.0569087415933609
+12/03/2023 07:28:56 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:29:19 - INFO - trainer.finetune_evaluator - Epoch 46 Eval Result: R@10:0.06857126951217651, R@50:0.16936345398426056, NDCG@10:0.03522210195660591, NDCG@50:0.05697989836335182
+12/03/2023 07:31:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:32:14 - INFO - trainer.finetune_evaluator - Epoch 47 Eval Result: R@10:0.06814989447593689, R@50:0.16902635991573334, NDCG@10:0.03496392071247101, NDCG@50:0.056832119822502136
+12/03/2023 07:34:46 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 07:35:09 - INFO - trainer.finetune_evaluator - Epoch 48 Eval Result: R@10:0.06879600137472153, R@50:0.1700657308101654, NDCG@10:0.03548480197787285, NDCG@50:0.05747012421488762
+12/03/2023 07:35:09 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 07:35:09 - INFO - trainer.finetune_evaluator - ***** Run test *****
+12/03/2023 07:35:32 - INFO - trainer.finetune_evaluator - Test Result: R@10:0.06098657473921776, R@50:0.15281757712364197, NDCG@10:0.03173869848251343, NDCG@50:0.05161425471305847
+12/03/2023 09:45:07 - INFO - __main__ - {'config': './configs/finetuning/finetune_amazon.yaml', 'wandb_enable': False, 'project_name': '', 'display_name': '', 'num_worker': 4, 'train_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'train_seq_file': './dataset/amazon/processed/Sports/train_seq.jsonl', 'eval_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'eval_seq_file': './dataset/amazon/processed/Sports/eval_seq.jsonl', 'test_item_file': './dataset/amazon/processed/Sports/item_feature.jsonl', 'test_seq_file': './dataset/amazon/processed/Sports/test_seq.jsonl', 'max_seq_length': 20, 'train_vision_format': 'embed', 'eval_vision_format': 'embed', 'test_vision_format': 'embed', 'max_vision_frames': 10, 'train_text_format': 'embed', 'eval_text_format': 'embed', 'test_text_format': 'embed', 'clip_model_path': './weights/clip/ViT-B-32.pt', 'vision_feature_embed_dim': 512, 'text_feature_embed_dim': 512, 'fusion_embed_dim': 512, 'fusion_layers': 2, 'fusion_heads': 8, 'fusion_feedforward_dim': 1024, 'fusion_dropout': 0.5, 'fusion_embed_dropout': 0.2, 'initializer_range': 0.02, 'path': './adj_mat/Sports', 'seed': 42, 'log_file': './logs/finetune-amazon-2layer-ngcf-sports.log', 'train_batch_size': 1024, 'eval_batch_size': 1024, 'test_batch_size': 1024, 'num_train_epochs': 500, 'learning_rate': 0.001, 'lr_scheduler_gamma': 1.0, 'max_grad_norm': 1.0, 'contrastive_temperature': 0.05, 'ce_mask_ratio': 0.2, 'early_stopping': 10, 'model_save_path': './weights/finetune-Sports-8192batch-ngcf', 'model_resume_path': './weights/pretrain-webvid-2layer-512dim', 'rank': 0, 'local_rank': 0, 'world_size': 2, 'device': device(type='cuda', index=0)}
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/pretrain-webvid-2layer-512dim
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer - ***** Run training *****
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer -   Num examples = 189543
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer -   Num Epochs = 500
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer -   Instantaneous batch size per device = 1024
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer -   Total train batch size = 2048
+12/03/2023 09:45:42 - INFO - trainer.finetune_trainer -   Total steps = 46500
+12/03/2023 09:48:20 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 09:48:42 - INFO - trainer.finetune_evaluator - Epoch 0 Eval Result: R@10:0.023765381425619125, R@50:0.06548120826482773, NDCG@10:0.012602366507053375, NDCG@50:0.02150287851691246
+12/03/2023 09:48:42 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 0 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 09:51:14 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 09:51:37 - INFO - trainer.finetune_evaluator - Epoch 1 Eval Result: R@10:0.03536715731024742, R@50:0.10388224571943283, NDCG@10:0.017563022673130035, NDCG@50:0.032279226928949356
+12/03/2023 09:51:37 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 1 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 09:54:09 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 09:54:32 - INFO - trainer.finetune_evaluator - Epoch 2 Eval Result: R@10:0.04297994449734688, R@50:0.11759088188409805, NDCG@10:0.02155989594757557, NDCG@50:0.037617314606904984
+12/03/2023 09:54:32 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 2 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 09:57:04 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 09:57:26 - INFO - trainer.finetune_evaluator - Epoch 3 Eval Result: R@10:0.045283444225788116, R@50:0.12542839348316193, NDCG@10:0.022589417174458504, NDCG@50:0.03981730714440346
+12/03/2023 09:57:26 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 3 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 09:59:58 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:00:21 - INFO - trainer.finetune_evaluator - Epoch 4 Eval Result: R@10:0.05078937113285065, R@50:0.13388392329216003, NDCG@10:0.025663303211331367, NDCG@50:0.043613310903310776
+12/03/2023 10:00:21 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 4 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:02:53 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:03:16 - INFO - trainer.finetune_evaluator - Epoch 5 Eval Result: R@10:0.05014326795935631, R@50:0.13688971102237701, NDCG@10:0.0256867166608572, NDCG@50:0.044358063489198685
+12/03/2023 10:05:48 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:06:10 - INFO - trainer.finetune_evaluator - Epoch 6 Eval Result: R@10:0.0516882985830307, R@50:0.13891230523586273, NDCG@10:0.02607518434524536, NDCG@50:0.044936247169971466
+12/03/2023 10:06:10 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 6 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:08:42 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:09:05 - INFO - trainer.finetune_evaluator - Epoch 7 Eval Result: R@10:0.05430080369114876, R@50:0.14380021393299103, NDCG@10:0.027490336447954178, NDCG@50:0.04680754244327545
+12/03/2023 10:09:05 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 7 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:11:37 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:12:00 - INFO - trainer.finetune_evaluator - Epoch 8 Eval Result: R@10:0.05522782355546951, R@50:0.14599135518074036, NDCG@10:0.027997175231575966, NDCG@50:0.0475437231361866
+12/03/2023 10:12:00 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 8 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:14:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:14:54 - INFO - trainer.finetune_evaluator - Epoch 9 Eval Result: R@10:0.055733468383550644, R@50:0.14967133104801178, NDCG@10:0.027639536187052727, NDCG@50:0.04783177003264427
+12/03/2023 10:14:54 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 9 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:17:26 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:17:49 - INFO - trainer.finetune_evaluator - Epoch 10 Eval Result: R@10:0.05654812231659889, R@50:0.15113209187984467, NDCG@10:0.028285687789320946, NDCG@50:0.04861542209982872
+12/03/2023 10:17:49 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 10 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:20:21 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:20:44 - INFO - trainer.finetune_evaluator - Epoch 11 Eval Result: R@10:0.05705376714468002, R@50:0.1518905609846115, NDCG@10:0.02906084805727005, NDCG@50:0.04954145476222038
+12/03/2023 10:20:44 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 11 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:23:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:23:39 - INFO - trainer.finetune_evaluator - Epoch 12 Eval Result: R@10:0.059076353907585144, R@50:0.1533232182264328, NDCG@10:0.030039289966225624, NDCG@50:0.050321102142333984
+12/03/2023 10:23:39 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 12 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:26:10 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:26:33 - INFO - trainer.finetune_evaluator - Epoch 13 Eval Result: R@10:0.05952581763267517, R@50:0.1566942036151886, NDCG@10:0.030642816796898842, NDCG@50:0.051596205681562424
+12/03/2023 10:26:33 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 13 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:29:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:29:28 - INFO - trainer.finetune_evaluator - Epoch 14 Eval Result: R@10:0.060059554874897, R@50:0.15557053685188293, NDCG@10:0.030605193227529526, NDCG@50:0.05122876167297363
+12/03/2023 10:29:28 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 14 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:32:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:32:22 - INFO - trainer.finetune_evaluator - Epoch 15 Eval Result: R@10:0.059581998735666275, R@50:0.15700320899486542, NDCG@10:0.03082985244691372, NDCG@50:0.0518106147646904
+12/03/2023 10:34:54 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:35:17 - INFO - trainer.finetune_evaluator - Epoch 16 Eval Result: R@10:0.06028428673744202, R@50:0.15877297520637512, NDCG@10:0.031135741621255875, NDCG@50:0.05236978456377983
+12/03/2023 10:35:17 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 16 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:37:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:38:11 - INFO - trainer.finetune_evaluator - Epoch 17 Eval Result: R@10:0.062419239431619644, R@50:0.16026180982589722, NDCG@10:0.03181888535618782, NDCG@50:0.05299516022205353
+12/03/2023 10:38:11 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 17 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:40:43 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:41:06 - INFO - trainer.finetune_evaluator - Epoch 18 Eval Result: R@10:0.06185740977525711, R@50:0.16211585700511932, NDCG@10:0.03187671676278114, NDCG@50:0.0535314567387104
+12/03/2023 10:43:38 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:44:00 - INFO - trainer.finetune_evaluator - Epoch 19 Eval Result: R@10:0.06244732812047005, R@50:0.16043037176132202, NDCG@10:0.03212384507060051, NDCG@50:0.05322831869125366
+12/03/2023 10:44:00 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 19 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:46:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:46:55 - INFO - trainer.finetune_evaluator - Epoch 20 Eval Result: R@10:0.06314961612224579, R@50:0.1618349403142929, NDCG@10:0.0322137251496315, NDCG@50:0.05350193381309509
+12/03/2023 10:46:55 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 20 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:49:27 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:49:50 - INFO - trainer.finetune_evaluator - Epoch 21 Eval Result: R@10:0.06359907984733582, R@50:0.16141356527805328, NDCG@10:0.03265288844704628, NDCG@50:0.05388583987951279
+12/03/2023 10:49:50 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 21 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:52:21 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:52:44 - INFO - trainer.finetune_evaluator - Epoch 22 Eval Result: R@10:0.06354289501905441, R@50:0.16281813383102417, NDCG@10:0.03257016837596893, NDCG@50:0.05404665693640709
+12/03/2023 10:55:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:55:39 - INFO - trainer.finetune_evaluator - Epoch 23 Eval Result: R@10:0.06542502343654633, R@50:0.16231249272823334, NDCG@10:0.033706117421388626, NDCG@50:0.05470241978764534
+12/03/2023 10:55:39 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 23 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 10:58:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 10:58:33 - INFO - trainer.finetune_evaluator - Epoch 24 Eval Result: R@10:0.06612731516361237, R@50:0.1648407280445099, NDCG@10:0.03397727012634277, NDCG@50:0.0553230382502079
+12/03/2023 10:58:33 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 24 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:01:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:01:28 - INFO - trainer.finetune_evaluator - Epoch 25 Eval Result: R@10:0.06475082784891129, R@50:0.16408225893974304, NDCG@10:0.03316676989197731, NDCG@50:0.054697658866643906
+12/03/2023 11:04:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:04:22 - INFO - trainer.finetune_evaluator - Epoch 26 Eval Result: R@10:0.06649249792098999, R@50:0.16545873880386353, NDCG@10:0.03394320234656334, NDCG@50:0.05526908114552498
+12/03/2023 11:04:22 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 26 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:06:54 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:07:17 - INFO - trainer.finetune_evaluator - Epoch 27 Eval Result: R@10:0.06455419212579727, R@50:0.1664419323205948, NDCG@10:0.033151183277368546, NDCG@50:0.05510378256440163
+12/03/2023 11:09:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:10:12 - INFO - trainer.finetune_evaluator - Epoch 28 Eval Result: R@10:0.06652059406042099, R@50:0.16543065011501312, NDCG@10:0.03370986878871918, NDCG@50:0.055099476128816605
+12/03/2023 11:10:12 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 28 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:12:43 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:13:06 - INFO - trainer.finetune_evaluator - Epoch 29 Eval Result: R@10:0.06373953819274902, R@50:0.16427889466285706, NDCG@10:0.03276960924267769, NDCG@50:0.05452289804816246
+12/03/2023 11:15:38 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:16:01 - INFO - trainer.finetune_evaluator - Epoch 30 Eval Result: R@10:0.06576212495565414, R@50:0.16582392156124115, NDCG@10:0.03399481624364853, NDCG@50:0.055607039481401443
+12/03/2023 11:18:32 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:18:55 - INFO - trainer.finetune_evaluator - Epoch 31 Eval Result: R@10:0.06632395088672638, R@50:0.16632957756519318, NDCG@10:0.034225933253765106, NDCG@50:0.055768705904483795
+12/03/2023 11:21:27 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:21:50 - INFO - trainer.finetune_evaluator - Epoch 32 Eval Result: R@10:0.06688578426837921, R@50:0.1684645265340805, NDCG@10:0.03406282514333725, NDCG@50:0.055989574640989304
+12/03/2023 11:21:50 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 32 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:24:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:24:45 - INFO - trainer.finetune_evaluator - Epoch 33 Eval Result: R@10:0.06593067198991776, R@50:0.1684083342552185, NDCG@10:0.0337476022541523, NDCG@50:0.055880751460790634
+12/03/2023 11:27:16 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:27:39 - INFO - trainer.finetune_evaluator - Epoch 34 Eval Result: R@10:0.06871172785758972, R@50:0.16604866087436676, NDCG@10:0.03500271216034889, NDCG@50:0.05605122819542885
+12/03/2023 11:27:39 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 34 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:30:11 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:30:34 - INFO - trainer.finetune_evaluator - Epoch 35 Eval Result: R@10:0.06654868274927139, R@50:0.1683240681886673, NDCG@10:0.03416824713349342, NDCG@50:0.056132249534130096
+12/03/2023 11:33:05 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:33:28 - INFO - trainer.finetune_evaluator - Epoch 36 Eval Result: R@10:0.06702624261379242, R@50:0.16647003591060638, NDCG@10:0.034397516399621964, NDCG@50:0.05594170093536377
+12/03/2023 11:36:00 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:36:23 - INFO - trainer.finetune_evaluator - Epoch 37 Eval Result: R@10:0.06775661557912827, R@50:0.16728468239307404, NDCG@10:0.0346100777387619, NDCG@50:0.05611768364906311
+12/03/2023 11:38:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:39:17 - INFO - trainer.finetune_evaluator - Epoch 38 Eval Result: R@10:0.06879600137472153, R@50:0.16874544322490692, NDCG@10:0.035284049808979034, NDCG@50:0.056847672909498215
+12/03/2023 11:39:17 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 38 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:41:49 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:42:12 - INFO - trainer.finetune_evaluator - Epoch 39 Eval Result: R@10:0.06772852689027786, R@50:0.1683521568775177, NDCG@10:0.03442986309528351, NDCG@50:0.05622796341776848
+12/03/2023 11:44:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:45:07 - INFO - trainer.finetune_evaluator - Epoch 40 Eval Result: R@10:0.06764425337314606, R@50:0.1683240681886673, NDCG@10:0.03444461524486542, NDCG@50:0.05618643760681152
+12/03/2023 11:47:39 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:48:01 - INFO - trainer.finetune_evaluator - Epoch 41 Eval Result: R@10:0.06893645972013474, R@50:0.17090848088264465, NDCG@10:0.03527158126235008, NDCG@50:0.05734867602586746
+12/03/2023 11:48:01 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 41 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 11:50:33 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:50:56 - INFO - trainer.finetune_evaluator - Epoch 42 Eval Result: R@10:0.06879600137472153, R@50:0.16902635991573334, NDCG@10:0.034727051854133606, NDCG@50:0.056373536586761475
+12/03/2023 11:53:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:53:51 - INFO - trainer.finetune_evaluator - Epoch 43 Eval Result: R@10:0.06812180578708649, R@50:0.16804315149784088, NDCG@10:0.034802377223968506, NDCG@50:0.05630951002240181
+12/03/2023 11:56:22 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:56:45 - INFO - trainer.finetune_evaluator - Epoch 44 Eval Result: R@10:0.0684589073061943, R@50:0.16964437067508698, NDCG@10:0.03456089273095131, NDCG@50:0.056413859128952026
+12/03/2023 11:59:17 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 11:59:40 - INFO - trainer.finetune_evaluator - Epoch 45 Eval Result: R@10:0.06649249792098999, R@50:0.1682397872209549, NDCG@10:0.033974193036556244, NDCG@50:0.05593035742640495
+12/03/2023 12:02:12 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:02:34 - INFO - trainer.finetune_evaluator - Epoch 46 Eval Result: R@10:0.0683465376496315, R@50:0.1700095534324646, NDCG@10:0.03457815945148468, NDCG@50:0.05650123953819275
+12/03/2023 12:05:06 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:05:29 - INFO - trainer.finetune_evaluator - Epoch 47 Eval Result: R@10:0.0684027224779129, R@50:0.17037475109100342, NDCG@10:0.03512796014547348, NDCG@50:0.05719028413295746
+12/03/2023 12:08:01 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:08:23 - INFO - trainer.finetune_evaluator - Epoch 48 Eval Result: R@10:0.06938592344522476, R@50:0.1702061891555786, NDCG@10:0.03534357622265816, NDCG@50:0.05711883679032326
+12/03/2023 12:08:23 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 48 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 12:10:55 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:11:18 - INFO - trainer.finetune_evaluator - Epoch 49 Eval Result: R@10:0.06899264454841614, R@50:0.1700095534324646, NDCG@10:0.03495844826102257, NDCG@50:0.05679921805858612
+12/03/2023 12:13:50 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:14:13 - INFO - trainer.finetune_evaluator - Epoch 50 Eval Result: R@10:0.06868363916873932, R@50:0.17132985591888428, NDCG@10:0.0350274033844471, NDCG@50:0.05724875628948212
+12/03/2023 12:16:44 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:17:07 - INFO - trainer.finetune_evaluator - Epoch 51 Eval Result: R@10:0.06792516261339188, R@50:0.16905444860458374, NDCG@10:0.03461382910609245, NDCG@50:0.05652429535984993
+12/03/2023 12:19:39 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:20:02 - INFO - trainer.finetune_evaluator - Epoch 52 Eval Result: R@10:0.06924546509981155, R@50:0.1702342927455902, NDCG@10:0.035364728420972824, NDCG@50:0.05719602853059769
+12/03/2023 12:22:34 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:22:56 - INFO - trainer.finetune_evaluator - Epoch 53 Eval Result: R@10:0.06803753226995468, R@50:0.17214450240135193, NDCG@10:0.034718096256256104, NDCG@50:0.05730600655078888
+12/03/2023 12:25:28 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:25:51 - INFO - trainer.finetune_evaluator - Epoch 54 Eval Result: R@10:0.06812180578708649, R@50:0.16981291770935059, NDCG@10:0.035038597881793976, NDCG@50:0.05708099156618118
+12/03/2023 12:28:23 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:28:46 - INFO - trainer.finetune_evaluator - Epoch 55 Eval Result: R@10:0.06823417544364929, R@50:0.16947582364082336, NDCG@10:0.03448096662759781, NDCG@50:0.05639472231268883
+12/03/2023 12:31:17 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:31:40 - INFO - trainer.finetune_evaluator - Epoch 56 Eval Result: R@10:0.06770043075084686, R@50:0.16880162060260773, NDCG@10:0.03465964272618294, NDCG@50:0.05653366446495056
+12/03/2023 12:34:12 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:34:35 - INFO - trainer.finetune_evaluator - Epoch 57 Eval Result: R@10:0.06882409006357193, R@50:0.17093656957149506, NDCG@10:0.03481508791446686, NDCG@50:0.05681289732456207
+12/03/2023 12:37:07 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:37:30 - INFO - trainer.finetune_evaluator - Epoch 58 Eval Result: R@10:0.06986347585916519, R@50:0.1699252873659134, NDCG@10:0.035667166113853455, NDCG@50:0.05735969915986061
+12/03/2023 12:37:30 - INFO - trainer.finetune_trainer - ***** Saving model checkpoint 58 to ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 12:40:01 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:40:24 - INFO - trainer.finetune_evaluator - Epoch 59 Eval Result: R@10:0.06949828565120697, R@50:0.17062756419181824, NDCG@10:0.03518635034561157, NDCG@50:0.057067617774009705
+12/03/2023 12:42:56 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:43:19 - INFO - trainer.finetune_evaluator - Epoch 60 Eval Result: R@10:0.06921737641096115, R@50:0.17048710584640503, NDCG@10:0.03502318635582924, NDCG@50:0.05692160874605179
+12/03/2023 12:45:51 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:46:13 - INFO - trainer.finetune_evaluator - Epoch 61 Eval Result: R@10:0.06986347585916519, R@50:0.17043092846870422, NDCG@10:0.03530292958021164, NDCG@50:0.057028889656066895
+12/03/2023 12:48:45 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:49:08 - INFO - trainer.finetune_evaluator - Epoch 62 Eval Result: R@10:0.06896454840898514, R@50:0.1699533760547638, NDCG@10:0.03528744354844093, NDCG@50:0.057095710188150406
+12/03/2023 12:51:40 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:52:03 - INFO - trainer.finetune_evaluator - Epoch 63 Eval Result: R@10:0.06848699599504471, R@50:0.1718354970216751, NDCG@10:0.0348065048456192, NDCG@50:0.05719650909304619
+12/03/2023 12:54:35 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:54:58 - INFO - trainer.finetune_evaluator - Epoch 64 Eval Result: R@10:0.0684308111667633, R@50:0.16970054805278778, NDCG@10:0.03457159548997879, NDCG@50:0.05653960630297661
+12/03/2023 12:57:29 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 12:57:52 - INFO - trainer.finetune_evaluator - Epoch 65 Eval Result: R@10:0.06862745434045792, R@50:0.17121748626232147, NDCG@10:0.034919168800115585, NDCG@50:0.05709844455122948
+12/03/2023 13:00:24 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 13:00:47 - INFO - trainer.finetune_evaluator - Epoch 66 Eval Result: R@10:0.06806562095880508, R@50:0.1702342927455902, NDCG@10:0.034865837544202805, NDCG@50:0.05700480192899704
+12/03/2023 13:03:19 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 13:03:42 - INFO - trainer.finetune_evaluator - Epoch 67 Eval Result: R@10:0.06859935820102692, R@50:0.17132985591888428, NDCG@10:0.035044942051172256, NDCG@50:0.0572148896753788
+12/03/2023 13:06:13 - INFO - trainer.finetune_evaluator - ***** Run eval *****
+12/03/2023 13:06:36 - INFO - trainer.finetune_evaluator - Epoch 68 Eval Result: R@10:0.06980729103088379, R@50:0.1702342927455902, NDCG@10:0.0354386605322361, NDCG@50:0.057159826159477234
+12/03/2023 13:06:36 - INFO - trainer.finetune_trainer - ***** Resume Model from path ./weights/finetune-Sports-8192batch-ngcf
+12/03/2023 13:06:36 - INFO - trainer.finetune_evaluator - ***** Run test *****
+12/03/2023 13:06:59 - INFO - trainer.finetune_evaluator - Test Result: R@10:0.062082141637802124, R@50:0.15545818209648132, NDCG@10:0.03209247067570686, NDCG@50:0.05230019986629486
